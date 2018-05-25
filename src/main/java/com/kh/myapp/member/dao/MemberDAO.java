@@ -1,8 +1,8 @@
-package com.kh.member.dao;
+package com.kh.myapp.member.dao;
 
 import java.util.ArrayList;
 
-import com.kh.member.vo.MemberVO;
+import com.kh.myapp.member.vo.MemberVO;
 
 public interface MemberDAO {
 	

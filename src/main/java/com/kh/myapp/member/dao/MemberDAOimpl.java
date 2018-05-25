@@ -1,6 +1,5 @@
-package com.kh.member.dao;
+package com.kh.myapp.member.dao;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.sql.DataSource;
@@ -8,7 +7,7 @@ import javax.sql.DataSource;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.kh.member.vo.MemberVO;
+import com.kh.myapp.member.vo.MemberVO;
 
 public class MemberDAOimpl implements MemberDAO{
 
@@ -49,7 +48,7 @@ public class MemberDAOimpl implements MemberDAO{
 
 	@Override
 	public ArrayList<MemberVO> getMemberList() {
-		ArrayList<MemberVO> alist = new ArrayList<>();
+		ArrayList<MemberVO> alist = new ArrayList<MemberVO>();
 		StringBuffer str = new StringBuffer();
 		str.append("select * from member");
 		alist = (ArrayList<MemberVO>)this.jtemplate.query(str.toString(),

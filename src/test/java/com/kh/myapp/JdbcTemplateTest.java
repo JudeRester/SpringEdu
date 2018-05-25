@@ -11,8 +11,8 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.kh.member.dao.MemberDAOimpl;
-import com.kh.member.vo.MemberVO;
+import com.kh.myapp.member.dao.MemberDAOimpl;
+import com.kh.myapp.member.vo.MemberVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations= {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
