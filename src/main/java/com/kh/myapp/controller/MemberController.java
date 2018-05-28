@@ -55,7 +55,7 @@ public class MemberController {
 		if(result.hasErrors()) {
 			return "/member/memberModify";
 		}else {
-			return "redirect:/";
+			return "redirect:/member/mbmerList";
 		}
 	}
 	@RequestMapping(value="/memberDelete/{id:.+}")
@@ -64,7 +64,7 @@ public class MemberController {
 			memberService.memberDelete(id);
 		}else {
 		}
-		return "redirect:/";
+		return "redirect:/member/memberList";
 	}
 	@RequestMapping(value="/memberList")
 	public String memberList(Model model){

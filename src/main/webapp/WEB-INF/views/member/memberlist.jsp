@@ -38,6 +38,10 @@
 		<td><button id="modi" data-url='/member/memberModify/${memberVO.id }'>수정</button></td>
 		<td><button id="del" data-url='/member/memberDelete/${memberVO.id }'>삭제</button></td>
 	</tr>
+	<tr>
+		<td colspan="8" align="center">
+		<button ></button></td>
+	</tr>
 <script>
 $(function(){
 	$("#modi").on("click",function(){
