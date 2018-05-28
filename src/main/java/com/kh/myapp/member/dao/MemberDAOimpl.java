@@ -6,9 +6,11 @@ import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.kh.myapp.member.vo.MemberVO;
 
+@Repository("memberDAO")
 public class MemberDAOimpl implements MemberDAO{
 
 	private JdbcTemplate jtemplate;
@@ -20,15 +22,22 @@ public class MemberDAOimpl implements MemberDAO{
 		StringBuffer str = new StringBuffer();
 		str.append("insert into member(id, passwd, name, birth, phone, gender)")
 		.append(" values(?,?,?,?,?,?)");
+		
 		try {
-		this.jtemplate.update(str.toString(),
+			System.out.println(memberVO.getId()+"/"+
+					memberVO.getPasswd()+"/"+
+					memberVO.getName()+"/"+
+					memberVO.getBirth()+"/"+
+					memberVO.getPhone()+"/"+
+					memberVO.getGender());
+			this.jtemplate.update(str.toString(),
 				memberVO.getId(),
 				memberVO.getPasswd(),
 				memberVO.getName(),
 				memberVO.getBirth(),
-				memberVO.getPasswd(),
-				memberVO.getGender()
-				);
+				memberVO.getPhone(),
+				memberVO.getGender());
+		
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

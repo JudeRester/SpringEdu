@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.kh.myapp.member.dao.MemberDAOimpl;
+import com.kh.myapp.member.service.MemberServiceimpl;
 import com.kh.myapp.member.vo.MemberVO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -22,19 +23,22 @@ public class JdbcTemplateTest {
 	@Autowired
 	DataSource ds;
 	private MemberDAOimpl memberDAO = new MemberDAOimpl();
+	@Autowired
+	MemberServiceimpl memberService = new MemberServiceimpl();
 	
 	@Test
 	public void test() {
 		memberDAO.setDataSource(ds);
 		logger.info(memberDAO.toString());
 		MemberVO memVO= new MemberVO();
-		memVO.setId("admin2@kh.com");
+		memVO.setId("admin6@kh.com");
 		memVO.setPasswd("1234");
 		memVO.setName("관리자");
 		memVO.setBirth("20000101");
 		memVO.setPhone("01012345678");
 		memVO.setGender("w");
-		memberDAO.insert(memVO);
+		//memberDAO.insert(memVO);
+		memberService.memberInsert(memVO);
 	}
 	@Autowired
 	DefaultListableBeanFactory df;
