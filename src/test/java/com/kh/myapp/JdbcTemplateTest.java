@@ -31,7 +31,7 @@ public class JdbcTemplateTest {
 		memberDAO.setDataSource(ds);
 		logger.info(memberDAO.toString());
 		MemberVO memVO= new MemberVO();
-		memVO.setId("admin6@kh.com");
+		memVO.setId("admin9@kh.com");
 		memVO.setPasswd("1234");
 		memVO.setName("관리자");
 		memVO.setBirth("20000101");
@@ -40,12 +40,12 @@ public class JdbcTemplateTest {
 		//memberDAO.insert(memVO);
 		memberService.memberInsert(memVO);
 	}
-	@Autowired
+	/*@Autowired
 	DefaultListableBeanFactory df;
 	@Test
 	public void beans() {
 		for(String name : df.getBeanDefinitionNames()) {
 			logger.info(name+"\t"+df.getBean(name).getClass().getName());
 		}
-	}
+	}*/
 }

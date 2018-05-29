@@ -68,13 +68,6 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${org.slf4j-version}</version>
-			<scope>runtime</scope>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/ch.qos.logback/logback-classic -->
-		<dependency>
 		    <groupId>ch.qos.logback</groupId>
 		    <artifactId>logback-classic</artifactId>
 		    <version>1.2.3</version>
@@ -82,6 +75,12 @@
 		</dependency>
 		
 		<!-- <dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${org.slf4j-version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.15</version>
@@ -104,8 +103,7 @@
 				</exclusion>
 			</exclusions>
 			<scope>runtime</scope>
-		</dependency>
- -->
+		</dependency> -->
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>
@@ -113,13 +111,15 @@
 			<version>1</version>
 		</dependency>
 				
-		<!-- Servlet -->
+		<!-- Start Servlet & JSP -->
+		
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -131,6 +131,7 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
+		<!-- End Servlet & JSP-->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
 		<dependency>
 		    <groupId>org.hibernate</groupId>
@@ -151,7 +152,19 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-		
+<!-- 		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-api</artifactId>
+		    <version>5.2.0</version>
+		    <scope>test</scope>
+		</dependency>
+		https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+		<dependency>
+		    <groupId>org.junit.jupiter</groupId>
+		    <artifactId>junit-jupiter-engine</artifactId>
+		    <version>5.2.0</version>
+		    <scope>test</scope>
+		</dependency> -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
 		<dependency>
 		    <groupId>org.springframework</groupId>
@@ -160,8 +173,7 @@
 		    <scope>test</scope>
 		</dependency>
 		<!-- End Test -->		 
-		
-		<!-- https://mvnrepository.com/artifact/org.webjars/bootstrap -->
+		<!-- Start Webjars -->
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>bootstrap</artifactId>
@@ -255,7 +267,6 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
-            
         </plugins>
     </build>
 </project>

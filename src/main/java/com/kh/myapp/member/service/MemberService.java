@@ -1,6 +1,6 @@
 package com.kh.myapp.member.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.kh.myapp.member.vo.MemberVO;
 
@@ -12,7 +12,7 @@ public interface MemberService {
 	public MemberVO getByMemberId(String id);
 	
 	// 회원목록 가져오기
-	public ArrayList<MemberVO> getMemberList();
+	public List<MemberVO> getMemberAll();
 	
 	// 회원정보 수정
 	public void memberUpdate(MemberVO memberVO);
@@ -20,6 +20,5 @@ public interface MemberService {
 	// 회원정보 삭제
 	public void memberDelete(String id);
 
-	public ArrayList<MemberVO> getMemberAll();
 
 }

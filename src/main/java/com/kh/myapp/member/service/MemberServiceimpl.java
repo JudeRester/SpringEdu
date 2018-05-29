@@ -1,8 +1,9 @@
 package com.kh.myapp.member.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.kh.myapp.member.dao.MemberDAO;
@@ -12,6 +13,7 @@ import com.kh.myapp.member.vo.MemberVO;
 public class MemberServiceimpl implements MemberService {
 
 	@Autowired
+	@Qualifier("memberDAOimpl")
 	MemberDAO memberDAO;	
 	
 	@Override
@@ -25,7 +27,7 @@ public class MemberServiceimpl implements MemberService {
 	}
 
 	@Override
-	public ArrayList<MemberVO> getMemberList() {
+	public List<MemberVO> getMemberAll() {
 		return memberDAO.getMemberList();
 	}
 
@@ -39,9 +41,6 @@ public class MemberServiceimpl implements MemberService {
 		memberDAO.delete(id);
 	}
 
-	@Override
-	public ArrayList<MemberVO> getMemberAll() {
-		return memberDAO.getMemberList();
-	}
+
 
 }

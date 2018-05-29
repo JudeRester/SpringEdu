@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.kh.myapp.member.vo.MemberVO;
 
-@Repository("memberDAO")
+@Repository
 public class MemberDAOimpl implements MemberDAO{
 
 	private JdbcTemplate jtemplate;

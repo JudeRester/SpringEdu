@@ -1,26 +1,24 @@
-package com.kh.myapp.member.dao;
+package com.kh.myapp.member.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
-import com.kh.myapp.member.service.MemberService;
 import com.kh.myapp.member.vo.MemberVO;
 
-public class MemberMapperDAO implements MemberService {
+public class MemberServiceimplXML implements MemberService {
 
 	@Override
 	public void memberInsert(MemberVO memberVO) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public MemberVO getByMemberId(String id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
-	public ArrayList<MemberVO> getMemberList() {
+	public List<MemberVO> getMemberAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -35,12 +33,6 @@ public class MemberMapperDAO implements MemberService {
 	public void memberDelete(String id) {
 		// TODO Auto-generated method stub
 
-	}
-
-	@Override
-	public ArrayList<MemberVO> getMemberAll() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

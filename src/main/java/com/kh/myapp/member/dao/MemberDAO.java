@@ -1,6 +1,6 @@
 package com.kh.myapp.member.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.kh.myapp.member.vo.MemberVO;
 
@@ -10,7 +10,7 @@ public interface MemberDAO {
 	
 	public MemberVO getMember(String id);
 	
-	public ArrayList<MemberVO> getMemberList();
+	public List<MemberVO> getMemberList();
 	
 	public void delete(String id);
 

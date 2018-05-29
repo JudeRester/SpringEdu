@@ -22,14 +22,12 @@ import com.kh.myapp.member.vo.MemberVO;
 @Controller
 @RequestMapping("/member")
 @SessionAttributes("memberVO")
-public class MemberController {
+public class MemberXMLController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MemberXMLController.class);
 	
 	@Autowired
-	//@Qualifier("memberServiceimpl")
-	@
-	Qualifier("memberServiceimplXML")
+	@Qualifier("memberServiceimpl")
 	MemberService memberService;
 	
 	@RequestMapping("/memberJoin")
