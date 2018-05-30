@@ -2,11 +2,12 @@ package com.kh.myapp.member.vo;
 
 import java.sql.Date;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-
+@Entity
 public class MemberVO {
 	@Pattern(regexp="^[a-zA-Z0-9\\-_\\.]+@[a-zA-Z0-9\\-_\\.]+\\.[a-zA-Z]+$",message="이메일 형식이 아닙니다.")
 	private String id;
@@ -23,9 +24,23 @@ public class MemberVO {
 	private Date cdate;
 	private Date udate;
 	
-	public MemberVO() {
-		
+	public MemberVO() {	}
+	
+	public MemberVO(String id, String passwd, String name, String birth, String phone, String gender, Date cdate,
+			Date udate) {
+		super();
+		this.id = id;
+		this.passwd = passwd;
+		this.name = name;
+		this.birth = birth;
+		this.phone = phone;
+		this.gender = gender;
+		this.cdate = cdate;
+		this.udate = udate;
 	}
+
+
+
 	public String getId() {
 		return id;
 	}

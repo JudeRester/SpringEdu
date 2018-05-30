@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,7 @@ import com.kh.myapp.member.vo.MemberVO;
 public class MemberDAOimpl implements MemberDAO{
 
 	private JdbcTemplate jtemplate;
+	@Autowired
 	public void setDataSource(DataSource dataSource) {
 		this.jtemplate = new JdbcTemplate(dataSource);
 	}
@@ -50,8 +52,9 @@ public class MemberDAOimpl implements MemberDAO{
 		MemberVO memVO = new MemberVO();
 		StringBuffer str = new StringBuffer();
 		str.append("select * from member where id = ?");
-		memVO = (MemberVO)this.jtemplate.query(str.toString(),
-				new BeanPropertyRowMapper<MemberVO>(MemberVO.class));
+		memVO = (MemberVO)this.jtemplate.queryForObject(str.toString(), new Object[] {id},
+				new BeanPropertyRowMapper<>(MemberVO.class));
+		
 		return memVO;
 	}
 
@@ -78,7 +81,7 @@ public class MemberDAOimpl implements MemberDAO{
 
 	@Override
 	public void delete(String id) {
-		this.jtemplate.update("delete from member where = ?", id);
+		this.jtemplate.update("delete from member where id = ?", id);
 	}
 
 }

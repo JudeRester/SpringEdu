@@ -22,16 +22,18 @@ public class JdbcTemplateTest {
 	private static final Logger logger = LoggerFactory.getLogger(DBConnTest.class);
 	@Autowired
 	DataSource ds;
+	
 	private MemberDAOimpl memberDAO = new MemberDAOimpl();
+	
 	@Autowired
 	MemberServiceimpl memberService = new MemberServiceimpl();
 	
-	@Test
+/*	@Test
 	public void test() {
 		memberDAO.setDataSource(ds);
 		logger.info(memberDAO.toString());
 		MemberVO memVO= new MemberVO();
-		memVO.setId("admin9@kh.com");
+		memVO.setId("admin10@kh.com");
 		memVO.setPasswd("1234");
 		memVO.setName("관리자");
 		memVO.setBirth("20000101");
@@ -39,13 +41,14 @@ public class JdbcTemplateTest {
 		memVO.setGender("w");
 		//memberDAO.insert(memVO);
 		memberService.memberInsert(memVO);
-	}
-	/*@Autowired
+	}*/
+	
+	@Autowired
 	DefaultListableBeanFactory df;
 	@Test
 	public void beans() {
 		for(String name : df.getBeanDefinitionNames()) {
 			logger.info(name+"\t"+df.getBean(name).getClass().getName());
 		}
-	}*/
+	}
 }

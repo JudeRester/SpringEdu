@@ -12,7 +12,7 @@ public interface MemberDAO {
 	
 	public List<MemberVO> getMemberList();
 	
+	public void update(MemberVO memberVO);
+	
 	public void delete(String id);
-
-	void update(MemberVO memVO);
 }

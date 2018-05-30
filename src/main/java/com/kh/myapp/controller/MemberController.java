@@ -21,15 +21,13 @@ import com.kh.myapp.member.vo.MemberVO;
 
 @Controller
 @RequestMapping("/member")
-@SessionAttributes("memberVO")
 public class MemberController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	
 	@Autowired
 	//@Qualifier("memberServiceimpl")
-	@
-	Qualifier("memberServiceimplXML")
+	@Qualifier("memberServiceimplXML")
 	MemberService memberService;
 	
 	@RequestMapping("/memberJoin")
