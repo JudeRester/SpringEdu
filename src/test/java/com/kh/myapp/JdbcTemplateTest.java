@@ -28,12 +28,12 @@ public class JdbcTemplateTest {
 	@Autowired
 	MemberServiceimpl memberService = new MemberServiceimpl();
 	
-/*	@Test
+	@Test
 	public void test() {
 		memberDAO.setDataSource(ds);
 		logger.info(memberDAO.toString());
 		MemberVO memVO= new MemberVO();
-		memVO.setId("admin10@kh.com");
+		memVO.setId("admin11@kh.com");
 		memVO.setPasswd("1234");
 		memVO.setName("관리자");
 		memVO.setBirth("20000101");
@@ -41,7 +41,7 @@ public class JdbcTemplateTest {
 		memVO.setGender("w");
 		//memberDAO.insert(memVO);
 		memberService.memberInsert(memVO);
-	}*/
+	}
 	
 	@Autowired
 	DefaultListableBeanFactory df;

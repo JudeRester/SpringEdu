@@ -8,7 +8,7 @@
  	</settings>
  	<typeAliases>
  		<typeAlias alias="memberVO" type="com.kh.myapp.member.vo.MemberVO" />
- 		
+ 		<typeAlias alias="loginVO" type="com.kh.myapp.login.vo.LoginVO" />
  		
  	</typeAliases>
   </configuration>

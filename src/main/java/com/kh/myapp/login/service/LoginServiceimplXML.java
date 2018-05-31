@@ -9,11 +9,11 @@ import com.kh.myapp.login.vo.LoginVO;
 import com.kh.myapp.member.vo.MemberVO;
 
 @Service
-public class LoginServiceimplJDBC implements LoginService {
-	
+public class LoginServiceimplXML implements LoginService {
 	@Autowired
-	@Qualifier("loginDAOimplJDBC")
+	@Qualifier("loginDAOimplXML")
 	LoginDAO loginDAO;
+	
 	@Override
 	public MemberVO getMember(LoginVO loginVO) {
 		return loginDAO.getMember(loginVO);
