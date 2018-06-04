@@ -58,8 +58,9 @@ public class LoginController {
 	}
 }
 	//로그아웃
-	@RequestMapping("/logout")
-	public String logOut(@ModelAttribute("login") MemberVO login, SessionStatus sessionStatus) {
+	@RequestMapping("/logOut")
+//	public String logOut(@ModelAttribute("login") MemberVO login, SessionStatus sessionStatus) {
+	public String logOut(LoginVO logout, SessionStatus sessionStatus) {
 		sessionStatus.setComplete();		
 		return "redirect:/";
 	}

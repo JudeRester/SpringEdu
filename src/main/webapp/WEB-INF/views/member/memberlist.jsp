@@ -20,7 +20,7 @@ $(function(){
 </head>
 <body>
 회원목록
-<table border=1 cellpadding=0 cellspacing=0>
+<table border=1>
 <tr>
 	<th>#</th>
 	<th>아이디</th>
@@ -39,8 +39,8 @@ $(function(){
 	<td>${memberVO.birth }</td>
 	<td>${memberVO.phone }</td>
 	<td>
-		<c:if test="${memberVO.gender eq 'M'}" > 남자 </c:if>
-		<c:if test="${memberVO.gender eq 'W'}" > 여자 </c:if>
+		<c:if test="${memberVO.gender == 'M'}" >남자</c:if>
+		<c:if test="${memberVO.gender == 'W'}" >여자</c:if>
 	</td>
 	<td><button id="modi" data-url="/member/memberModify/${memberVO.id }">수정</button></td>
 	<td><button id="del" data-url="/member/memberDelete/${memberVO.id }">삭제</button></td>

@@ -14,7 +14,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.kh.myapp.member.service.MemberService;
 import com.kh.myapp.member.vo.MemberVO;
@@ -57,7 +56,7 @@ public class MemberController {
 		if(result.hasErrors()) {
 			return "/member/memberModify";
 		}else {
-			return "redirect:/member/mbmerList";
+			return "redirect:/member/memberList";
 		}
 	}
 	@RequestMapping(value="/memberDelete/{id:.+}")
@@ -70,9 +69,10 @@ public class MemberController {
 	}
 	@RequestMapping(value="/memberList")
 	public String memberList(Model model){
+		System.out.println("따라란");
 		List<MemberVO> alist = memberService.getMemberAll();
 		model.addAttribute("memberVOS",alist);
-		logger.info("memberList?id");
+//		logger.info("memberList?id");
 		return "/member/memberList";
 	}		
 }
