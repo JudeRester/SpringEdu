@@ -26,4 +26,7 @@
 			gender=#{gender}
 			where id = #{id}
 		</update>
+		<select id="findId" resultType ="String" >
+			select id from member where name=#{name} and phone=#{phone}
+		</select>
     </mapper>

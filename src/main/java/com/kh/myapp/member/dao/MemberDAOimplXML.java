@@ -43,5 +43,16 @@ public class MemberDAOimplXML implements MemberDAO {
 		sqlSession.update("memberUpdate",memVO);		
 	}
 
+	@Override
+	public String findId(String name, String phone) {
+		return sqlSession.getMapper(MemberDAO.class).findId(name, phone);
+	}
+
+	@Override
+	public String findPw(String id, String name, String phone) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

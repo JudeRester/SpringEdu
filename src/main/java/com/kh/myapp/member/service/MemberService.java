@@ -19,6 +19,9 @@ public interface MemberService {
 	
 	// 회원정보 삭제
 	public void memberDelete(String id);
-
+	
+	public String findId(String name, String phone);
+	
+	public String findPw(String id, String name, String phone);
 
 }

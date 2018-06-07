@@ -83,5 +83,21 @@ public class MemberDAOimpl implements MemberDAO{
 	public void delete(String id) {
 		this.jtemplate.update("delete from member where id = ?", id);
 	}
+	@Override
+	public String findId(String name, String phone) {
+		String id = null;
+		StringBuffer sql = new StringBuffer();
+		sql.append("select id from member where name = ? and phone = ?");
+		id = this.jtemplate.queryForObject(sql.toString(), new Object[] {name,  phone}, String.class);
+		return id;
+	}
+	@Override
+	public String findPw(String id, String name, String phone) {
+		String pw = null;
+		StringBuffer sql = new StringBuffer();
+		sql.append("select passwd from member where id = ? and name = ? and phone = ?");
+		pw = this.jtemplate.queryForObject(sql.toString(), new Object[] {id,name,phone}, String.class);
+		return pw;
+	}
 
 }

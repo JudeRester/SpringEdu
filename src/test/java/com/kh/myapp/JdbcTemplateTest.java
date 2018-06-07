@@ -2,6 +2,7 @@ package com.kh.myapp;
 
 import javax.sql.DataSource;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -28,12 +29,12 @@ public class JdbcTemplateTest {
 	@Autowired
 	MemberServiceimpl memberService = new MemberServiceimpl();
 	
-	@Test
+	@Test @Ignore
 	public void test() {
 		memberDAO.setDataSource(ds);
 		logger.info(memberDAO.toString());
 		MemberVO memVO= new MemberVO();
-		memVO.setId("admin11@kh.com");
+		memVO.setId("admin16@kh.com");
 		memVO.setPasswd("1234");
 		memVO.setName("관리자");
 		memVO.setBirth("20000101");

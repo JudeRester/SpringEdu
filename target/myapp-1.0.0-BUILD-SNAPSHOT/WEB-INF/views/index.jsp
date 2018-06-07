@@ -18,7 +18,7 @@
 </head>
 <body>
 <jsp:include page="nav.jsp" flush="true"/>
-<div>dfdfsdsf</div>
+
 <jsp:include page="footer.jsp" flush="true"/>
 </body>
 </html>

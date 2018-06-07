@@ -41,6 +41,16 @@ public class MemberServiceimpl implements MemberService {
 		memberDAO.delete(id);
 	}
 
+	@Override
+	public String findId(String name, String phone) {
+		return memberDAO.findId(name, phone);
+	}
+
+	@Override
+	public String findPw(String id, String name, String phone) {
+		return memberDAO.findPw(id, name, phone);
+	}
+
 
 
 }
