@@ -234,6 +234,34 @@
 		    <version>5.0.13</version>
 		</dependency>
 		
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.9.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.dataformat</groupId>
+		    <artifactId>jackson-dataformat-xml</artifactId>
+		    <version>2.9.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.dataformat</groupId>
+		    <artifactId>jackson-dataformat-yaml</artifactId>
+		    <version>2.9.5</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok
+			// 어노테이션으로 DTO, VO 등의 객체에 setter, getter, constructor, toString등을 자동생성-->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.18.0</version>
+		    <scope>provided</scope>
+		</dependency>
+				
+				
 	</dependencies>
     <build>
         <plugins>
