@@ -2,6 +2,7 @@ package com.kh.myapp.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -31,8 +32,10 @@ public class MemberController {
 	MemberService memberService;
 	
 	@RequestMapping("/memberJoin")
-	public void memberJoin(Model model){
+	public String memberJoin(Model model, HttpSession session){
 		model.addAttribute("memberVO", new MemberVO());
+		
+		return "/member/memberjoin";
 	}
 
 	@RequestMapping(value="/memberJoinOK", method = RequestMethod.POST)

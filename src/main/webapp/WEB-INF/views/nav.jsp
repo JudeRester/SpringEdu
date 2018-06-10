@@ -7,7 +7,7 @@
  <link href="/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template -->
  <link href="/resources/css/freelancer.min.css" rel="stylesheet">
-<nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+<nav class="navbar navbar-expand-lg bg-primary fixed-top text-uppercase" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">Start Bootstrap</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" 

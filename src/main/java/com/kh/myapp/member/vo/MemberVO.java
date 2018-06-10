@@ -13,7 +13,7 @@ public class MemberVO {
 	private String id;
 	@Size(min=4,max=30,message="비밀번호는 4-30byte로 입력해주세요.")
 	private String passwd;
-	@Size(min=4,max=20,message="이름은 4-20byte로 입력해주세요.")
+	@Size(min=2,max=20,message="이름은 4-20byte로 입력해주세요.")
 	private String name;
 	@NotNull
 	private String birth;
