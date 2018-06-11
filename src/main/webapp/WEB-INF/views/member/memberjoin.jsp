@@ -54,7 +54,7 @@ $(function(){
 body, html{
      height: 100%;
  	background-repeat: no-repeat;
- 	background:url(https://i.ytimg.com/vi/4kfXjatgeEU/maxresdefault.jpg);
+ 	background:url(https://www.rhinocarhire.com/CorporateSite/media/Site-Images/new/background.jpg);
  	font-family: 'Oxygen', sans-serif;
 	    background-size: cover;
 }
@@ -166,11 +166,11 @@ span.input-group-addon i {
 <jsp:include page="/WEB-INF/views/nav.jsp" />
 </header>
 <%-- <jsp:include page="/WEB-INF/views/nav.jsp" flush="true"/> --%>
-	<div class="playground-container">
-		<div class="row main">
+	<div class="container">
+		<div class="row main"  style="padding-top:100px">
 			<div class="main-login main-center">
 			<h5>회 원 가 입</h5>
-				<form class="" method="post" action="#">
+				<form method="post" action="/member/memberJoinOK">
 					
 					<div class="form-group">
 						<label for="name" class="cols-sm-2 control-label">Your Name</label>

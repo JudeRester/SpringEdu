@@ -16,6 +16,7 @@ public class LoginVO {
 		this.id = id;
 	}
 	
+	
 	public String getPasswd() {
 		return passwd;
 	}

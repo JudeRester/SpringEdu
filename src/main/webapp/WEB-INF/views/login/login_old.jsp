@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,22 +43,18 @@
 <hr />
 <h2>로그인</h2>
 <hr />
-<c:url value="j_spring_security_check" var="loginUrl"/>
-<c:if test="${param.fail != null }">
-	<b>로그인 실패</b>
-	</c:if>
-<form:form modelAttribute="login" action="${pageContext.request.contextPath }/${loginUrl }" method="post">
+<form:form modelAttribute="login" action="/login/memLoginOK" method="post">
 <table>
 	<tr>
 		<th>아이디</th>
 		<td>
-			<form:input path="username"/><form:errors path="username" />
+			<form:input path="id"/><form:errors path="id" />
 		</td>
 	</tr>
 	<tr>
 		<th>비밀번호</th>
 		<td>
-			<form:password path="password"/><form:errors path="password"/>
+			<form:password path="passwd"/><form:errors path="passwd"/>
 		</td>
 	</tr>
 	<tr>
