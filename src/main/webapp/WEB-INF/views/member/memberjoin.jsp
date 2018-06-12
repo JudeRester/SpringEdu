@@ -10,6 +10,7 @@
 <script src="/webjars/jquery/3.3.1/dist/jquery.js"></script>
 <script src="/webjars/bootstrap/4.1.0/js/bootstrap.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/joinin.css" />
 <script>
 $(function(){
 	
@@ -27,7 +28,7 @@ $(function(){
 		$("form").submit();
 		
 	});
-	
+/* 	
 	$("#joinClearBtn").on("click",function(e){
 		e.preventDefault();		
 		  $("form").each(function(){
@@ -38,124 +39,13 @@ $(function(){
 	$("#joinCancelBtn").on("click",function(e){
 		e.preventDefault();		
 			location.href="/member/memberList";
-	});	 
+	});	 */
 	
-});
+}); 
 </script>
 <style>
 	.errmsg{color:red;}
 	.passErr{color:red;}	
-	
-	#playground-container {
-    height: 800px;
-    overflow: hidden !important;
-    -webkit-overflow-scrolling: touch;
-}
-body, html{
-     height: 100%;
- 	background-repeat: no-repeat;
- 	background:url(https://www.rhinocarhire.com/CorporateSite/media/Site-Images/new/background.jpg);
- 	font-family: 'Oxygen', sans-serif;
-	    background-size: cover;
-}
-
-.main{
- 	margin:50px 15px;
-}
-
-h1.title { 
-	font-size: 50px;
-	font-family: 'Passion One', cursive; 
-	font-weight: 400; 
-}
-
-hr{
-	width: 10%;
-	color: #fff;
-}
-
-.form-group{
-	margin-bottom: 15px;
-}
-
-label{
-	margin-bottom: 15px;
-}
-
-input,
-input::-webkit-input-placeholder {
-    font-size: 11px;
-    padding-top: 3px;
-}
-
-.main-login{
- 	background-color: #fff;
-    /* shadows and rounded borders */
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-
-}
-.form-control {
-    height: auto!important;
-padding: 8px 12px !important;
-}
-.input-group {
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.21)!important;
-}
-#button {
-    border: 1px solid #ccc;
-    margin-top: 28px;
-    padding: 6px 12px;
-    color: #666;
-    text-shadow: 0 1px #fff;
-    cursor: pointer;
-    -moz-border-radius: 3px 3px;
-    -webkit-border-radius: 3px 3px;
-    border-radius: 3px 3px;
-    -moz-box-shadow: 0 1px #fff inset, 0 1px #ddd;
-    -webkit-box-shadow: 0 1px #fff inset, 0 1px #ddd;
-    box-shadow: 0 1px #fff inset, 0 1px #ddd;
-    background: #f5f5f5;
-    background: -moz-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5f5f5), color-stop(100%, #eeeeee));
-    background: -webkit-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-    background: -o-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-    background: -ms-linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-    background: linear-gradient(top, #f5f5f5 0%, #eeeeee 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#eeeeee', GradientType=0);
-}
-.main-center{
- 	margin-top: 30px;
- 	margin: 0 auto;
- 	max-width: 400px;
-    padding: 10px 40px;
-	background:#009edf;
-	    color: #FFF;
-    text-shadow: none;
-	-webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
--moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.31);
-
-}
-span.input-group-addon i {
-    color: #009edf;
-    font-size: 17px;
-}
-
-.login-button{
-	margin-top: 5px;
-}
-
-.login-register{
-	font-size: 11px;
-	text-align: center;
-}
 
 </style>
 
@@ -169,45 +59,57 @@ span.input-group-addon i {
 	<div class="container">
 		<div class="row main"  style="padding-top:100px">
 			<div class="main-login main-center">
-			<h5>회 원 가 입</h5>
-				<form method="post" action="/member/memberJoinOK">
+			<h5>Join in Our Site</h5>
+				<form:form modelAttribute="memberVO" action="/member/memberJoinOK" method="post">
 					
 					<div class="form-group">
-						<label for="name" class="cols-sm-2 control-label">Your Name</label>
+						<label for="name" class="cols-sm-2 control-label">Name</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-								<input type="text" class="form-control" name="name" id="name"  placeholder="Enter your Name"/>
+								<span class="input-group-addon"></span>
+								<form:input type="text" class="form-control" path="name"  placeholder="Enter your Name"/>
 							</div>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="email" class="cols-sm-2 control-label">Your Email</label>
+						<label for="birth" class="cols-sm-2 control-label">Birth</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-								<input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+								<span class="input-group-addon"></span>
+								<form:input type="text" class="form-control" path="birth"  placeholder="ex)19940307"/>
+							</div>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="phone" class="cols-sm-2 control-label">Phone</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"></span>
+								<form:input type="text" class="form-control" path="phone"  placeholder="Enter your phone number"/>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="id" class="cols-sm-2 control-label">ID</label>
+						<div class="cols-sm-10">
+							<div class="input-group">
+								<span class="input-group-addon"></span>
+								<form:input type="text" class="form-control" path="id"  placeholder="Enter your Email"/>
 							</div>
 						</div>
 					</div>
 
 					<div class="form-group">
-						<label for="username" class="cols-sm-2 control-label">Username</label>
+						<label for="passwd" class="cols-sm-2 control-label">Password</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-								<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username"/>
-							</div>
-						</div>
-					</div>
-
-					<div class="form-group">
-						<label for="password" class="cols-sm-2 control-label">Password</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+								<span class="input-group-addon"></span>
+								<form:input type="password" class="form-control" path="passwd"  placeholder="Enter your Password"/>
+								<div class="input-group">
+								<form:errors path="passwd" cssClass="errmsg"/>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -216,17 +118,18 @@ span.input-group-addon i {
 						<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
 						<div class="cols-sm-10">
 							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-								<input type="password" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+								<span class="input-group-addon"></span>
+								<input type="password" class="form-control" path="confirm"  placeholder="Confirm your Password"/>
+								<span class="passErr"></span>
 							</div>
 						</div>
 					</div>
-
+					
 					<div class="form-group ">
-						<a href="https://ccp.cloudaccess.net/aff.php?aff=5188" target="_blank" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Register</a>
+						<button type="button" id="joinBtn" class="btn btn-primary btn-lg btn-block login-button">Register</button>
 					</div>
 					
-				</form>
+				</form:form>
 			</div>
 		</div>
 	</div>

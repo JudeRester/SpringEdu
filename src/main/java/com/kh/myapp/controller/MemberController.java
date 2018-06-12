@@ -42,7 +42,7 @@ public class MemberController {
 	public String memberJoinOK(@Valid MemberVO memberVO, BindingResult result){
 		if(result.hasErrors()) {
 			logger.info("회원가입시 오류 발생");
-			return "/member/memberJoin";
+			return "member/memberjoin";
 		}else {
 			memberService.memberInsert(memberVO);
 		}

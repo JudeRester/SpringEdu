@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.kh.myapp.bbs.dao.BbsDAO">
+    <insert id="write">
+    	insert into bbs (bnum, btitle, bname, bcontent) values(bbsnum_seq.nextval, #{bTitle},#{bName},#{bContent})
+    </insert>
+    
+     <select id="view">
+    	select BNUM, BTITLE, BNAME, BCDATE, BUDATE, BHIT, BCONTENT FROM bbs where bnum = #{bNum}
+    </select>
+    
+    <!-- <select id="list">
+    	select * from (select rownum as rnum, bnum, btitle,bname, bhit, bcontent, bgroup, bstep, bindent 
+		from (select bnum, btitle, bname, bhit, bcontent, bgroup, bstep, bindent 
+		from bbs 
+		start with bGroup is null connect by prior bnum = bgroup 
+		 order siblings by bgroup desc, bstep asc, bcdate desc, bnum desc)
+		 where rownum <= #{b})
+		 where rnum >= #{a}
+    </select> -->
+    <update id="update">
+    	update BBS SET btitle=#{bTitle}, bname=#{bName}, bcontent=#{bContent}, BUDATE=sysdate where BNUM = #{bNum}
+    </update>
+    
+    <delete id="delete">
+    	delete from bbs where bnum = #{bNum}
+    </delete>
+    <!-- <select id="listFindcri" resultType="BbsDTO">
+    	<choose>
+    		<when test="searchType=='tc'">
+    			and (btitle like '%'||#{keyword}||'%' or content like '%'||#{keyword}||'%')"); 
+    		</when>
+    		<when test="searchType=='t'">
+    			and btitle like '%' ||#{keyword}||'%'
+    		</when>
+    		<when></when>
+    		<otherwise></otherwise>
+    	</choose>
+    </select> -->
+    </mapper>
