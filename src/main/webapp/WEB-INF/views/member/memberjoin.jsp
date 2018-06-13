@@ -10,6 +10,8 @@
 <script src="/webjars/jquery/3.3.1/dist/jquery.js"></script>
 <script src="/webjars/bootstrap/4.1.0/js/bootstrap.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.0/css/mdb.min.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="/resources/css/joinin.css" />
 <script>
 $(function(){
@@ -58,7 +60,7 @@ $(function(){
 <%-- <jsp:include page="/WEB-INF/views/nav.jsp" flush="true"/> --%>
 	<div class="container">
 		<div class="row main"  style="padding-top:100px">
-			<div class="main-login main-center">
+			<div class="main-login main-center blue darken-1">
 			<h5>Join in Our Site</h5>
 				<form:form modelAttribute="memberVO" action="/member/memberJoinOK" method="post">
 					
@@ -228,6 +230,6 @@ $(function(){
 	 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+<!--     <script src="js/bootstrap.min.js"></script> -->
 </body>
 </html>

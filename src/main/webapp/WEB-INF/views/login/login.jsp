@@ -53,13 +53,13 @@
 	<tr>
 		<th>아이디</th>
 		<td>
-			<form:input path="username"/><form:errors path="username" />
+			<form:input path="username"/><%-- <form:errors path="username" /> --%>
 		</td>
 	</tr>
 	<tr>
 		<th>비밀번호</th>
 		<td>
-			<form:password path="password"/><form:errors path="password"/>
+			<form:password path="password"/><%-- <form:errors path="password"/> --%>
 		</td>
 	</tr>
 	<tr>
