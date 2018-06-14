@@ -3,26 +3,12 @@ package com.kh.myapp.login.vo;
 import javax.persistence.Entity;
 import javax.validation.constraints.Pattern;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class LoginVO {
-	private String id;
-	private String passwd;
-	
+	private String username;
 	@Pattern(regexp="^[a-zA-Z0-9\\-_\\.]+@[a-zA-Z0-9\\-_\\.]+\\.[a-zA-Z]+$")
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-	
-	
-	public String getPasswd() {
-		return passwd;
-	}
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
-	}
-	
-	
+	private String password;
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -52,29 +53,44 @@ height:100%;
     </header>
 
 <!-- The Modal -->
-  <div class="modal fade" id="loginM">
-    <div class="modal-dialog">
-      <div class="modal-content">
+  <form class="modal fade" id="loginM" action="j_spring_security_check" method="post">
+	<c:if test="${param.fail != null }">
+	<b>로그인 실패</b>
+	</c:if>
+    <div class="modal-dialog bg-primary">
+    
+      <div class="modal-content bg-primary">
       
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">Login</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        
+        <div class="imgcontainter">
+    	<img src="/resources/img/Login.png" alt="Avatar" class="avatar" style="padding-left:38%"/>
+    </div>
         <!-- Modal body -->
         <div class="modal-body">
-          Modal body..
+        <label for="username"><b>E-mail</b></label>
+          <input type="text" class="form-control" placeholder="Type your Email here" name="username" id="username" required/>
+          <span class="input-group-addon"></span>
+          <div class="cols-sm-10">
+			<div class="input-group">
+				<span class="input-group-addon"></span>
+			</div>
+		</div>
+          <label for="password"><b>Password</b></label>
+          <input type="password" class="form-control" placeholder="Type your Password here" name="password" id="password" required/>
         </div>
-        
         <!-- Modal footer -->
         <div class="modal-footer">
+		  <button type="submit" class="btn btn-success">Log in</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
         </div>
         
       </div>
     </div>
-  </div>
+  </form>
 
 <jsp:include page="footer.jsp" flush="true"/>
  <script>
