@@ -53,7 +53,7 @@ height:100%;
     </header>
 
 <!-- The Modal -->
-  <form class="modal fade" id="loginM" action="j_spring_security_check" method="post">
+  <form class="modal fade" id="loginM" action="${pageContext.request.contextPath }/login" method="post">
 	<c:if test="${param.fail != null }">
 	<b>로그인 실패</b>
 	</c:if>

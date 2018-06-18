@@ -23,7 +23,6 @@
 	 	$("#loginBtn").on("click",function(e){
 			e.preventDefault();
 			$("form").submit();
-			
 		});
 	 	
 /* 		$("form").submit(function(){
@@ -44,22 +43,22 @@
 <hr />
 <h2>로그인</h2>
 <hr />
-<c:url value="j_spring_security_check" var="loginUrl"/>
+<c:url value="login" var="loginUrl"/>
 <c:if test="${param.fail != null }">
 	<b>로그인 실패</b>
 	</c:if>
-<form:form modelAttribute="login" action="${pageContext.request.contextPath }/${loginUrl }" method="post">
+<form:form action="${pageContext.request.contextPath }/${loginUrl }" method="post">
 <table>
 	<tr>
 		<th>아이디</th>
 		<td>
-			<form:input path="username"/><%-- <form:errors path="username" /> --%>
+			<input type="text" name="username" id="username"/><%-- <form:errors path="username" /> --%>
 		</td>
 	</tr>
 	<tr>
 		<th>비밀번호</th>
 		<td>
-			<form:password path="password"/><%-- <form:errors path="password"/> --%>
+			<input type="password" id="password" name="password"/><%-- <form:errors path="password"/> --%>
 		</td>
 	</tr>
 	<tr>

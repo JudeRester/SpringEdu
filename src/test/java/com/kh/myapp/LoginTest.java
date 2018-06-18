@@ -27,8 +27,8 @@ public class LoginTest {
 	@Test
 	public void member() {
 		LoginVO loginVO = new LoginVO();
-		loginVO.setId("admin@kh.com");
-		loginVO.setPasswd("1234");
+		loginVO.setUsername("admin@kh.com");
+		loginVO.setPassword("1234");
 		MemberVO memVO = loginService.getMember(loginVO);
 		logger.info(memVO.getId());
 	}

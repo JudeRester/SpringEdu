@@ -6,7 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.kh.myapp.bbs.vo.BbsDTO;
 
-public class BbsDAOimpl implements BbsDAO {
+public class BbsDAOimplXML implements BbsDAO {
 	
 	SqlSession sqlSession;
 
@@ -51,9 +51,9 @@ public class BbsDAOimpl implements BbsDAO {
 	}
 
 	@Override
-	public int reply(BbsDTO bbsdto) {
-		// TODO Auto-generated method stub
-		return 0;
+	public BbsDTO reply(BbsDTO bbsdto) {
+		
+		return null;
 	}
 
 	@Override

@@ -28,7 +28,7 @@ public class LoginDAOimplJDBC implements LoginDAO {
 		.append(" from member")
 		.append(" where id = ? and passwd = ?");
 		memVO = this.jTemplate.queryForObject(
-                 str.toString(), new Object[] {loginVO.getId(), loginVO.getPasswd()},
+                 str.toString(), new Object[] {loginVO.getUsername(), loginVO.getPassword()},
                  new BeanPropertyRowMapper<MemberVO>(MemberVO.class));
 
 		 return memVO;

@@ -29,7 +29,7 @@ import com.kh.myapp.member.vo.MemberVO;
 
 @Controller
 @RequestMapping("/login")
-@SessionAttributes("login")
+//@SessionAttributes("login")
 public class LoginController {
 		
 	private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
@@ -46,7 +46,6 @@ public class LoginController {
 			logger.info("인증"+auth.getPrincipal());
 			return "redirect:/";
 		}
-		 model.addAttribute("login",new SecurityLoginVO("admin@kh.com","1234",AuthorityUtils.NO_AUTHORITIES));
 		return "login/login";
 	}
 	@RequestMapping(value="/logout", method=RequestMethod.GET)

@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import com.kh.myapp.login.vo.SecurityLoginVO;
 import com.kh.myapp.member.vo.MemberVO;
 
-public class LoginDAOimpl implements UserDetailsService{
+public class LoginDAOimplSecurity implements UserDetailsService{
 	
 	@Autowired
 	private JdbcTemplate jtemplate;

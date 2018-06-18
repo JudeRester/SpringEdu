@@ -4,15 +4,19 @@
 	xmlns="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
-
+	<!-- spring security 제외 -->
+	<http pattern="/bbs/**" security="none" />
+	<http pattern="/resources/**" security="none" />
+	
 	<http auto-config="true">
 		<form-login login-page="/login/login"
-		authentication-failure-url="/login/login?fail" 
-		login-processing-url="/j_spring_security_check"/>
+		authentication-failure-url="/login/login?fail" />
 	
 		<intercept-url pattern="/member/**" access="isAuthenticated()" /> <!-- 인증된 회원만 -->
 		<intercept-url pattern="/admin/**" access="hasAuthority('ROLE_ADMIN')" />
+		
 		<intercept-url pattern="/**" access="permitAll" /> <!-- 누구나 -->
+		
 		<form-login default-target-url="/" />
 		<logout logout-url="/logout" logout-success-url="/" />
 		
@@ -22,7 +26,7 @@
 	</http>
 	<beans:bean id="encoder" class="org.springframework.security.crypto.password.NoOpPasswordEncoder" />
 		
-	<beans:bean id="userServices" class="com.kh.myapp.login.dao.LoginDAOimpl" />
+	<beans:bean id="userServices" class="com.kh.myapp.login.dao.LoginDAOimplSecurity" />
 	<authentication-manager>
 		<authentication-provider user-service-ref="userServices">
 		<!-- 	<user-service>

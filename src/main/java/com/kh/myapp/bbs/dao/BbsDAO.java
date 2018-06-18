@@ -8,7 +8,7 @@ public interface BbsDAO {
 
 	void write(BbsDTO bbsdto);
 
-	List<BbsDTO> list(int a, int b);
+	List<BbsDTO> list(int Startrec, int Lastrec);
 
 	BbsDTO view(int bNum);
 
@@ -20,11 +20,11 @@ public interface BbsDAO {
 
 	BbsDTO preinfo(int bNum);
 
-	int reply(BbsDTO bbsdto);
+	BbsDTO reply(BbsDTO bbsdto);
 
 	int totalrec();
 
-	List<BbsDTO> list(int a, int b, String keyword, String col);
+	List<BbsDTO> list(int Startrec, int Lastrec, String keyword, String col);
 
 	int totalrec(String col, String keyword);
 
