@@ -3,12 +3,21 @@ package com.kh.myapp.bbs.dao;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+import org.jboss.logging.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import com.kh.myapp.bbs.vo.BbsDTO;
+import com.kh.myapp.bbs.criteria.FindCriteria;
+import com.kh.myapp.bbs.criteria.RecordCriteria;
+import com.kh.myapp.bbs.dto.BbsDTO;
 
+@Repository
 public class BbsDAOimplXML implements BbsDAO {
 	
-	SqlSession sqlSession;
+	private static final Logger logger = Logger.getLogger(BbsDAOimplXML.class);
+	
+	@Autowired
+	private SqlSession sqlSession;
 
 	@Override
 	public void write(BbsDTO bbsdto) {
@@ -16,28 +25,26 @@ public class BbsDAOimplXML implements BbsDAO {
 	}
 
 	@Override
-	public List<BbsDTO> list(int a, int b) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BbsDTO> list() throws Exception {
+		return sqlSession.selectList("list");
+	}
+
+	@Override
+	public List<BbsDTO> list(RecordCriteria recordCriteria) throws Exception {
+		logger.info(recordCriteria);
+		return sqlSession.selectList("listPageCri", recordCriteria);
+	}
+
+	@Override
+	public List<BbsDTO> list(FindCriteria findCriteria) throws Exception {
+		return sqlSession.selectList("listFindCri", findCriteria);
 	}
 
 	@Override
 	public BbsDTO view(int bNum) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("view", bNum);
 	}
 
-	@Override
-	public BbsDTO modify(int num) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int modify_ac(BbsDTO bdto) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public void delete(int bNum) {
@@ -46,14 +53,12 @@ public class BbsDAOimplXML implements BbsDAO {
 
 	@Override
 	public BbsDTO preinfo(int bNum) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("preInfo", bNum);
 	}
 
 	@Override
-	public BbsDTO reply(BbsDTO bbsdto) {
+	public void reply(BbsDTO bbsdto) {
 		
-		return null;
 	}
 
 	@Override
@@ -62,16 +67,17 @@ public class BbsDAOimplXML implements BbsDAO {
 		return 0;
 	}
 
-	@Override
-	public List<BbsDTO> list(int a, int b, String keyword, String col) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public int totalrec(String col, String keyword) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public void modify(BbsDTO bbsdto) throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

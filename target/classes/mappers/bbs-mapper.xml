@@ -30,11 +30,11 @@
     
     
    <insert id="reply">
-      insert into bbs (bnum, btitle, bname, bhit, bcontent, bgroup, bstep, bindent)
-      values(bbsnum_seq.nextval,#{btitle},#{bname},#{bhit},#{bcontent},#{bgroup},#{bstep},#{bindent})
+      insert into bbs (bnum, btitle, bname, bcontent, bgroup, bindent)
+      values(bbsnum_seq.nextval,#{btitle},#{bname},#{bcontent},#{bgroup},#{bindent})
    </insert>
    
-   <select id="replyView" resultType="BbsDTO">
+   <select id="preInfo" resultType="BbsDTO">
       select bnum, btitle, bname, bhit, bUdate, bcontent, bgroup, bstep, bindent
       from bbs where bnum = #{bnum}
    </select>

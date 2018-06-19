@@ -4,19 +4,23 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import com.kh.myapp.bbs.criteria.FindCriteria;
-import com.kh.myapp.bbs.criteria.PageCriteria;
-import com.kh.myapp.bbs.vo.BbsDTO;
+import com.kh.myapp.bbs.criteria.RecordCriteria;
+import com.kh.myapp.bbs.dao.BbsDAO;
+import com.kh.myapp.bbs.dto.BbsDTO;
 
+@Service
 public class BbsServiceImplXML implements BbsService {
 
 	@Autowired
-	@Qualifier("BbsDAOImplXML")
-
+	@Qualifier("bbsDAOimplXML")
+	private BbsDAO bbsDAO;
+	
 	@Override
 	public void write(BbsDTO bbsdto) throws Exception {
-
+		bbsDAO.write(bbsdto);
 	}
 
 	@Override
@@ -25,17 +29,6 @@ public class BbsServiceImplXML implements BbsService {
 		return null;
 	}
 
-	@Override
-	public List<BbsDTO> list(PageCriteria pageCriteria) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public BbsDTO view(Integer bNum) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public void modify(BbsDTO bbsdto) throws Exception {
@@ -43,11 +36,6 @@ public class BbsServiceImplXML implements BbsService {
 
 	}
 
-	@Override
-	public void delete(Integer bNum) throws Exception {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void reply(BbsDTO bbsdto) throws Exception {
@@ -55,11 +43,6 @@ public class BbsServiceImplXML implements BbsService {
 
 	}
 
-	@Override
-	public int totalRec() throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 	@Override
 	public List<BbsDTO> list(FindCriteria findcriteria) throws Exception {
@@ -67,8 +50,39 @@ public class BbsServiceImplXML implements BbsService {
 		return null;
 	}
 
+
 	@Override
-	public int searchTotalRec(FindCriteria findCriteria) throws Exception {
+	public List<BbsDTO> list(RecordCriteria recordCriteria) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BbsDTO view(int bNum) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void delete(int bNum) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public BbsDTO preinfo(int bNum) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int totalrec() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int totalrec(String col, String keyword) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}

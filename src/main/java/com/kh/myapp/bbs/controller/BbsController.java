@@ -1,6 +1,5 @@
 package com.kh.myapp.bbs.controller;
 
-import static java.lang.System.out;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -18,10 +17,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kh.myapp.bbs.criteria.FindCriteria;
 import com.kh.myapp.bbs.criteria.PageCriteria;
 import com.kh.myapp.bbs.criteria.RecordCriteria;
+import com.kh.myapp.bbs.dto.BbsDTO;
 import com.kh.myapp.bbs.service.BbsService;
-import com.kh.myapp.bbs.vo.BbsDTO;
 
 @Controller
 @RequestMapping("/bbs")
@@ -29,15 +29,12 @@ public class BbsController {
 
 	private static final Logger logger = LoggerFactory.getLogger(BbsController.class);
 	@Autowired
-	@Qualifier("bbsServiceXML")
+	@Qualifier("bbsServiceImplXML")
 	private BbsService bs;
 
 	@RequestMapping(value = "/write", method = GET)
 	public String writeGet(BbsDTO bbsdto, Model model) throws Exception {
 		logger.info("wite GET..");
-		logger.info(bbsdto.toString());
-
-		out.println();
 		return "redirect:/bbs/list";
 	}
 
@@ -47,7 +44,6 @@ public class BbsController {
 		logger.info(bbsdto.toString());
 
 		bs.write(bbsdto);
-		out.println();
 		return "redirect:/bbs/list";
 	}
 	//답글등록
@@ -84,6 +80,8 @@ public class BbsController {
 	//게시글 검색
 	@RequestMapping(value="/list", method=GET)
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		logger.info("list GET..");
+		
 		int currPage =0;
 		if(request.getParameter("currPage")==null||request.getParameter("currPage")=="") {
 			currPage=1;
@@ -102,7 +100,18 @@ public class BbsController {
 			if(keyword == null || keyword.trim().equals("")) {
 				rc = new RecordCriteria(currPage);
 				list = bs.list(rc);
+				int totalRec = bs.totalrec();
+				pc = new PageCriteria(rc, totalRec);
+			}else {
+				rc= new FindCriteria(currPage, option, keyword);
+				list = bs.list(rc);
+				int totalRec=bs.totalrec(option, keyword);
+				pc = new PageCriteria(rc,totalRec);	
+				
+				request.setAttribute("findCriteria", (FindCriteria)rc);			
 			}
+			request.setAttribute("list", list);
+			request.setAttribute("pc", pc);
 	}
 	
 }

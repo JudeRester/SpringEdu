@@ -12,17 +12,25 @@
 <jsp:include page="/WEB-INF/views/nav.jsp" flush="true"/>
 <body>
 <p class="h2" align="center">글쓰기</p>
+
 <table class="table table-hover">
 	<form action="/bbs/write" method="post">
 		<tr>
-			<th></th>
-			<td><input type="text" /></td>
-			<th></th>
-			<td><input type="text" /></td>
-			<th></th>
-			<td><input type="text" /></td>
-			<th></th>
-			<td><input type="text" /></td>
+			<th scope="col" class="w-25 p-3">제목</th>
+			<td scope="col"><input type="text" name="bTitle" class="form-control" id="" placeholder="insert title"/></td>
+		</tr>
+		<tr>
+			<th scope="col">작성자</th>
+			<td scope="col"><input type="text" name="bName" class="form-control" id="" placeholder="insert your name"/></td>
+		</tr>
+		<tr>
+			<th scope="col">내용</th>
+			<td scope="col"><textarea class="form-control" name="bContent" id="" ></textarea></td>
+		</tr>
+		<tr>
+			<td colspan=2>
+			<input type="submit" class="btn btn-primary" value="등록" />
+		 	<a href="list" class="btn btn-primary" role="button" aria-pressed="true" aria-describedby="inputGroup-sizing-sm"> 목록으로</a>
 		</tr>
 	</form>
 </table>

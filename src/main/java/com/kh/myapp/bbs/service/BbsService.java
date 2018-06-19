@@ -4,28 +4,39 @@ import java.util.List;
 
 import com.kh.myapp.bbs.criteria.FindCriteria;
 import com.kh.myapp.bbs.criteria.PageCriteria;
-import com.kh.myapp.bbs.vo.BbsDTO;
+import com.kh.myapp.bbs.criteria.RecordCriteria;
+import com.kh.myapp.bbs.dto.BbsDTO;
 
 public interface BbsService {
 	
-	public void write(BbsDTO bbsdto) throws Exception;
+	void write(BbsDTO bbsdto) throws Exception;
+
+	//List<BbsDTO> list(int Startrec, int Lastrec) throws Exception;
 	
-	public List<BbsDTO> list() throws Exception;
+	List<BbsDTO> list()  throws Exception;
+	
+	List<BbsDTO> list(RecordCriteria recordCriteria) throws Exception;
 
-	public List<BbsDTO> list(PageCriteria pageCriteria)  throws Exception;
+	BbsDTO view(int bNum) throws Exception;
 
-	public BbsDTO view(Integer bNum) throws Exception;
+/*	BbsDTO modify(int num) throws Exception;
 
-	public void modify(BbsDTO bbsdto) throws Exception;
+	int modify_ac(BbsDTO bdto) throws Exception;*/
 
-	public void delete(Integer bNum) throws Exception;
+	void modify(BbsDTO bbsdto) throws Exception;
+	
+	void delete(int bNum) throws Exception;
 
-	public void reply(BbsDTO bbsdto) throws Exception;
+	BbsDTO preinfo(int bNum) throws Exception;
 
-	public int totalRec() throws Exception;
+	void reply(BbsDTO bbsdto) throws Exception;
 
-	public List<BbsDTO> list(FindCriteria findcriteria) throws Exception;
+	int totalrec() throws Exception;
 
-	public int searchTotalRec(FindCriteria findCriteria) throws Exception;
+	List<BbsDTO> list(FindCriteria findCriteria) throws Exception;	
+	
+	//List<BbsDTO> list(int Startrec, int Lastrec, String keyword, String col) throws Exception;
 
+	int totalrec(String col, String keyword) throws Exception;
+	
 }
