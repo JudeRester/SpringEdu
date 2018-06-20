@@ -11,15 +11,10 @@
     	select BNUM, BTITLE, BNAME, BCDATE, BUDATE, BHIT, BCONTENT FROM bbs where bnum = #{bNum}
     </select>
     
-    <!-- <select id="list">
-    	select * from (select rownum as rnum, bnum, btitle,bname, bhit, bcontent, bgroup, bstep, bindent 
-		from (select bnum, btitle, bname, bhit, bcontent, bgroup, bstep, bindent 
-		from bbs 
-		start with bGroup is null connect by prior bnum = bgroup 
-		 order siblings by bgroup desc, bstep asc, bcdate desc, bnum desc)
-		 where rownum <= #{b})
-		 where rnum >= #{a}
-    </select> -->
+    <select id="list" resultType="BbsDTO"> 
+    select bnum, btitle, bname, bhit, bcontent, bcdate, bgroup, bstep, bindent
+     from bbs order by bgroup desc, bstep asc 
+     </select>
     <update id="update">
     	update BBS SET btitle=#{bTitle}, bname=#{bName}, bcontent=#{bContent}, BUDATE=sysdate where BNUM = #{bNum}
     </update>
@@ -43,7 +38,7 @@
       select t2.*
       from (select row_number() over (order by bgroup desc, bstep asc) as num, t1.*
       from bbs t1) t2
-      where num between #{startPage} and #{endPage}
+      where num between #{startRecord} and #{endRecord}
    </select>
    
    <select id="totalRec" resultType="int">

@@ -70,7 +70,7 @@ public class PageCriteria {
 		StringBuffer str = new StringBuffer();
 
 		if (recordCriteria.getCurrPage() != 0) {
-			str.append("reqPage=" + recordCriteria.getCurrPage());
+			str.append("currPage=" + recordCriteria.getCurrPage());
 		}
 
 		return str.toString();
@@ -81,7 +81,7 @@ public class PageCriteria {
 
 		StringBuffer str = new StringBuffer();
 
-		str.append("reqPage=" + reqPage);
+		str.append("currPage=" + reqPage);
 		// if(recordCriteria.getReqPage() != 0) {
 		// str.append("reqPage="+recordCriteria.getReqPage());
 		// }
@@ -91,7 +91,7 @@ public class PageCriteria {
 			if (((FindCriteria) recordCriteria).getOption() != null
 					|| !((FindCriteria) recordCriteria).getOption().trim().equals("")) {
 
-				str.append("&searchType=" + ((FindCriteria) recordCriteria).getOption());
+				str.append("&option=" + ((FindCriteria) recordCriteria).getOption());
 			}
 			if (((FindCriteria) recordCriteria).getKeyword() != null
 					|| !((FindCriteria) recordCriteria).getKeyword().trim().equals("")) {

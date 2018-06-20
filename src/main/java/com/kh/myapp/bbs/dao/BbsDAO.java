@@ -12,7 +12,7 @@ public interface BbsDAO {
 
 	//List<BbsDTO> list(int Startrec, int Lastrec) throws Exception;
 	
-	List<BbsDTO> list()  throws Exception;
+	List<BbsDTO> list() throws Exception;
 	
 	List<BbsDTO> list(RecordCriteria recordCriteria) throws Exception;
 

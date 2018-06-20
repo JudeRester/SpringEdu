@@ -50,7 +50,7 @@ public class RecordCriteria {
 	// 요청페이지 * 한페이지에 보여줄 레코드수
 	public int getEndRecord() {
 		// return this.getStartRecord() + this.numPerPage - 1;
-		return this.currPage * this.showamount;
+		return getStartRecord() + this.showamount-1;
 	}
 
 	@Override

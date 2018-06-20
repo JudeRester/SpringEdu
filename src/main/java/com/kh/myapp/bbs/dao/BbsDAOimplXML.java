@@ -63,21 +63,18 @@ public class BbsDAOimplXML implements BbsDAO {
 
 	@Override
 	public int totalrec() {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.selectOne("totalRec");
 	}
 
 
 	@Override
 	public int totalrec(String col, String keyword) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
 	public void modify(BbsDTO bbsdto) throws Exception {
-		// TODO Auto-generated method stub
-		
+		sqlSession.update("modify",bbsdto);
 	}
 
 }

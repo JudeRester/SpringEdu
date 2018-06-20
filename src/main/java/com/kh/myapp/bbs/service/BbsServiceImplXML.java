@@ -25,66 +25,56 @@ public class BbsServiceImplXML implements BbsService {
 
 	@Override
 	public List<BbsDTO> list() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return bbsDAO.list();
 	}
 
 
 	@Override
 	public void modify(BbsDTO bbsdto) throws Exception {
-		// TODO Auto-generated method stub
-
+		bbsDAO.modify(bbsdto);
 	}
 
 
 	@Override
 	public void reply(BbsDTO bbsdto) throws Exception {
-		// TODO Auto-generated method stub
-
+		bbsDAO.reply(bbsdto);
 	}
 
 
 	@Override
 	public List<BbsDTO> list(FindCriteria findcriteria) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return bbsDAO.list(findcriteria);
 	}
 
 
 	@Override
 	public List<BbsDTO> list(RecordCriteria recordCriteria) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return bbsDAO.list(recordCriteria);
 	}
 
 	@Override
 	public BbsDTO view(int bNum) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return bbsDAO.view(bNum);
 	}
 
 	@Override
 	public void delete(int bNum) throws Exception {
-		// TODO Auto-generated method stub
-		
+		bbsDAO.delete(bNum);
 	}
 
 	@Override
 	public BbsDTO preinfo(int bNum) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return bbsDAO.preinfo(bNum);
 	}
 
 	@Override
 	public int totalrec() throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return bbsDAO.totalrec();
 	}
 
 	@Override
 	public int totalrec(String col, String keyword) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return bbsDAO.totalrec(col, keyword);
 	}
 
 }

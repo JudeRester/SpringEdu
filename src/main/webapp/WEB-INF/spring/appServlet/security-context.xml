@@ -18,7 +18,6 @@
 	
 		<intercept-url pattern="/member/**" access="isAuthenticated()" /> <!-- 인증된 회원만 -->
 		<intercept-url pattern="/admin/**" access="hasAuthority('ROLE_ADMIN')" />
-		
 		<intercept-url pattern="/**" access="permitAll" /> <!-- 누구나 -->
 		
 		<form-login default-target-url="/" />

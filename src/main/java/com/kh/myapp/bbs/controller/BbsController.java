@@ -6,7 +6,6 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -79,7 +78,7 @@ public class BbsController {
 	
 	//게시글 검색
 	@RequestMapping(value="/list", method=GET)
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public void execute(HttpServletRequest request, Model model) throws Exception{
 		logger.info("list GET..");
 		
 		int currPage =0;
@@ -88,7 +87,7 @@ public class BbsController {
 		}else {
 			currPage = Integer.parseInt(request.getParameter("currPage"));
 		}
-		
+		System.out.println(currPage);
 		//검색조건 유무에 따른 분기
 		String option = request.getParameter("option");
 		String keyword = request.getParameter("keyword");
@@ -106,12 +105,20 @@ public class BbsController {
 				rc= new FindCriteria(currPage, option, keyword);
 				list = bs.list(rc);
 				int totalRec=bs.totalrec(option, keyword);
-				pc = new PageCriteria(rc,totalRec);	
+				pc = new PageCriteria(rc,totalRec);
 				
 				request.setAttribute("findCriteria", (FindCriteria)rc);			
 			}
 			request.setAttribute("list", list);
 			request.setAttribute("pc", pc);
 	}
+	
+	// 전체 게시글 목록
+		@RequestMapping(value = "/listAll", method = GET)
+		public void listAll(Model model) throws Exception {
+			logger.info("listAll GET..");		
+			model.addAttribute("list", bs.list());
+
+		}
 	
 }
