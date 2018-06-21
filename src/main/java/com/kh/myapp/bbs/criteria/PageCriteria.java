@@ -14,11 +14,13 @@ public class PageCriteria {
 	private boolean next; // 다음 페이지 여부
 
 	private RecordCriteria recordCriteria; // 한 페이지에 보여줄 레코드수 ,요청페이지 참조
-
+	
 	private PageCriteria(RecordCriteria recordCriteria) {
 		this.recordCriteria = recordCriteria;
+		
+		currpage = recordCriteria.getCurrPage();
 	}
-
+	
 	public PageCriteria(RecordCriteria recordCriteria, int totalRec) {
 		this(recordCriteria);
 		this.totalrec = totalRec;
@@ -49,7 +51,7 @@ public class PageCriteria {
 		}
 
 		// 단위당 첫 페이지
-		startpage = (currpage - 1) / showamount * showamount + 1;
+		startpage = ((currpage - 1) / showamount) * showamount + 1;
 
 		// 단위당 마지막 페이지
 		endpage = startpage + showamount - 1;
@@ -69,8 +71,8 @@ public class PageCriteria {
 
 		StringBuffer str = new StringBuffer();
 
-		if (recordCriteria.getCurrPage() != 0) {
-			str.append("currPage=" + recordCriteria.getCurrPage());
+		if (currpage != 0) {
+			str.append("currPage=" + currpage);
 		}
 
 		return str.toString();

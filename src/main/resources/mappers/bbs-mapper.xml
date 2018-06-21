@@ -7,7 +7,7 @@
     	insert into bbs (bnum, btitle, bname, bcontent) values(bbsnum_seq.nextval, #{bTitle},#{bName},#{bContent})
     </insert>
     
-     <select id="view">
+     <select id="view" resultType="BbsDTO">
     	select BNUM, BTITLE, BNAME, BCDATE, BUDATE, BHIT, BCONTENT FROM bbs where bnum = #{bNum}
     </select>
     
@@ -35,10 +35,18 @@
    </select>
    
    <select id="listPageCri" resultType="BbsDTO">
-      select t2.*
+      <!-- select t2.*
       from (select row_number() over (order by bgroup desc, bstep asc) as num, t1.*
       from bbs t1) t2
       where num between #{startRecord} and #{endRecord}
+       -->
+      select * 
+		from (select rownum as rnum, bnum, btitle,bname, bhit, bcontent, bgroup, bstep, bindent 
+		from (select bnum, btitle, bname, bhit, bcontent, bgroup, bstep, bindent 
+		from bbs start with bGroup is null connect by prior bnum = bgroup 
+		order siblings by bgroup desc, bstep asc, bcdate desc, bnum desc)
+		 where rownum <![CDATA[ < ]]>= #{endRecord})
+		 where rnum >= #{startRecord}
    </select>
    
    <select id="totalRec" resultType="int">

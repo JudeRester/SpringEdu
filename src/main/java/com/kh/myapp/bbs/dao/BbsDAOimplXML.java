@@ -41,7 +41,7 @@ public class BbsDAOimplXML implements BbsDAO {
 	}
 
 	@Override
-	public BbsDTO view(int bNum) {
+	public BbsDTO view(int bNum) throws Exception {
 		return sqlSession.selectOne("view", bNum);
 	}
 

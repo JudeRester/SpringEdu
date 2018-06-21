@@ -32,9 +32,8 @@ public class BbsController {
 	private BbsService bs;
 
 	@RequestMapping(value = "/write", method = GET)
-	public String writeGet(BbsDTO bbsdto, Model model) throws Exception {
+	public void writeGet(BbsDTO bbsdto, Model model) throws Exception {
 		logger.info("wite GET..");
-		return "redirect:/bbs/list";
 	}
 
 	@RequestMapping(value = "/write", method = POST)
@@ -73,7 +72,8 @@ public class BbsController {
 	//게시글보기
 	@RequestMapping(value="/view", method=GET)
 	public void view(@RequestParam("bnum")int bnum, Model model) throws Exception{
-		
+		logger.info("게시글 보기");
+		model.addAttribute("view", bs.view(bnum));
 	}
 	
 	//게시글 검색
@@ -87,7 +87,6 @@ public class BbsController {
 		}else {
 			currPage = Integer.parseInt(request.getParameter("currPage"));
 		}
-		System.out.println(currPage);
 		//검색조건 유무에 따른 분기
 		String option = request.getParameter("option");
 		String keyword = request.getParameter("keyword");
@@ -107,7 +106,8 @@ public class BbsController {
 				int totalRec=bs.totalrec(option, keyword);
 				pc = new PageCriteria(rc,totalRec);
 				
-				request.setAttribute("findCriteria", (FindCriteria)rc);			
+				request.setAttribute("findCriteria", (FindCriteria)rc);
+				
 			}
 			request.setAttribute("list", list);
 			request.setAttribute("pc", pc);

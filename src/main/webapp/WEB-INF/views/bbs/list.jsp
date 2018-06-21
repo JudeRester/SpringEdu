@@ -4,6 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+html, body{
+height:100%;}
+</style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/webjars/bootstrap/4.1.0/css/bootstrap.css">
 <script src="/webjars/jquery/3.3.1/dist/jquery.js"></script>
@@ -17,9 +21,8 @@ $(function).click(function(){
 </head>
 <jsp:include page="/WEB-INF/views/nav.jsp" flush="true" />
 <body>
-<div class="container">
+<div style="height:100%; margin-top:8%; margin-left:8%; margin-right:8%">
 <p class="h2" align="center"> 글 목록보기 </p>
-<body>
 	<div class="container">
 	  <table class="table table-hover">
    		 <thead class ="thead-light">
@@ -36,7 +39,7 @@ $(function).click(function(){
       	<th scope="row">${dto.bnum }</th>
         <td>
         <c:forEach begin="1" end="${dto.bindent }">┗</c:forEach>
-        <a href="view.do?bNum=${dto.bnum }&currpage=${pc.currpage }">${dto.btitle }</a>
+        <a href="/bbs/view?bnum=${dto.bnum }&${pc.makeSearchURL(pc.currpage) }">${dto.btitle }</a>
         </td>
         <td>${dto.bname }</td>
         <td>${dto.bhit }</td>
@@ -51,10 +54,10 @@ $(function).click(function(){
 		  <ul class="pagination" >
 		  	 <c:if test="${pc.pre }"> 
 			    <li class="page-item">
-			    	<a class="page-link" href="list?currpage=1">◀</a>
+			    	<a class="page-link" href="list?${pc.makeSearchURL(1)}">◀</a>
 			    </li>		  	 
 			    <li class="page-item">
-			    	<a class="page-link" href="list.do?currpage=${pc.startpage-1}">◁</a>
+			    	<a class="page-link" href="list?${pc.makeSearchURL(pc.startpage-1)}">◁</a>
 			    </li>
 		    </c:if>
 		    <c:forEach begin="${pc.startpage }" end="${pc.endpage }" var="pageNum">
@@ -71,28 +74,27 @@ $(function).click(function(){
 		    </c:forEach>
 		    <c:if test="${pc.next }">
 			    <li class="page-item">
-			    	<a class="page-link" href="list?currpage=${pc.makeSearchURL(pc.endpage+1)}">▷</a>
+			    	<a class="page-link" href="list?${pc.makeSearchURL(pc.endpage+1)}">▷</a>
 			    </li>
 			    <li class="page-item">
-			    	<a class="page-link" href="list?currpage=${pc.makeSearchURL(pc.lastpage)}">▶</a>
+			    	<a class="page-link" href="list?${pc.makeSearchURL(pc.lastpage)}">▶</a>
 			    </li>		    
 		    </c:if>		    
 		  </ul>
 		</nav>          
       </td>
 		<td colspan="5">
-		<a href="write?currpage=${pc.makeSearchURL(pc.currpage) }" class="btn btn-primary" role="button" aria-pressed="true">글쓰기</a>
+		<a href="write?${pc.makeSearchURL(pc.currpage) }" class="btn btn-primary" role="button" aria-pressed="true">글쓰기</a>
 		</td> 
     </tr>
      <tr>
      	<td>
-     	<form action="list.do" method="post">
+     	<form action="list" method="post">
      		<select name="col" class="form-control-sm">
      			<option value = "제목내용">제목 + 내용</option>
      			<option value = "제목">제목</option>
      			<option value = "내용">내용</option>
      			<option value = "작성자" >작성자</option>
-     			<%-- <c:if test="${param.keyword ne null}">검색어 null아님</c:if> --%>
      		</select>
      		<input type="text" name="keyword" class="form-control-sm" value="${keyword }" />
      		<input type="submit" class="btn btn-outline-dark btn-sm" id="searchBtn" value="검색"/>
@@ -100,28 +102,10 @@ $(function).click(function(){
      	</td>
      </tr>
     </table>
-    <!-- table>
-    <tr>
-      <c:forEach begin="${pc.startpage }" end="${pc.endpage }" var="pageNum">
-    	<c:if test="${pc.currpage == pageNum }">
-	    <td class="page-item active">		
-	      <a class="page-link" href="list.do?currpage=${pageNum}">${pageNum}</a>
-  	    </td>
-   			 </c:if>   
-   			 <c:if test="${pc.currpage != pageNum }">
-	 	   <td class="page-item">
-	    	<a class="page-link" href="list.do?currpage=${pageNum}">${pageNum}</a>
-	 	   </td>
-	 	   </c:if>
-  		  </c:forEach>
-  		  </tr>
-  		  <tr>
-  		  <td colspan="5" align="right">
-     		<a href="write_view.do" class="btn btn-primary" role="button" aria-pressed="true">글쓰기</a>
-     		</td>
-     		</tr>
-  </table-->
+   
 </div>
-<jsp:include page="/WEB-INF/views/footer.jsp" flush="true"/>
+</div>
+
 </body>
+<jsp:include page="/WEB-INF/views/footer.jsp" flush="true"/>
 </html>
