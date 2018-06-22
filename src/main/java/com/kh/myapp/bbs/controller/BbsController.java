@@ -59,7 +59,13 @@ public class BbsController {
 		bs.delete(bnum);
 		return "redirect:/bbs/list";
 	}
-	
+	//게시글 수정 화면
+	@RequestMapping(value="/mopage",method=GET)
+	public String mopage(@RequestParam("bnum") int bnum, BbsDTO bbsdto,
+			Model model) throws Exception{
+		
+		return "/bbs/write";
+	}
 	//게시글 수정
 	@RequestMapping(value="/modify", method=GET)
 	public String modify(@RequestParam("bnum") int bnum, BbsDTO bbsdto,
