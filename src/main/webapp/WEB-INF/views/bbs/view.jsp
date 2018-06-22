@@ -50,9 +50,9 @@ ${view.bcontent }
 	<table>
 	<tr>
 		<td colspan=2 align="right">
-		<a href="modify?bNum=${view.bnum }" class="btn btn-primary" role="button" aria-pressed="true">수정</a>
-		<a href="delete?bNum=${view.bnum }" class="btn btn-primary" role="button" aria-pressed="true">삭제</a>
-		<a href="reply?bNum=${view.bnum }" class="btn btn-primary" role="button" aria-pressed="true">답글</a>
+		<a href="modify?bnum=${view.bnum }" class="btn btn-primary" role="button" aria-pressed="true">수정</a>
+		<a href="delete?bnum=${view.bnum }" class="btn btn-primary" role="button" aria-pressed="true">삭제</a>
+		<a href="reply?bnum=${view.bnum }" class="btn btn-primary" role="button" aria-pressed="true">답글</a>
 	 	<a href="list?currpage=${currpage }" class="btn btn-primary" role="button" aria-pressed="true" aria-describedby="inputGroup-sizing-sm"> 목록으로</a>
 	 	<a class="btn btn-primary" role="button" aria-pressed="true" href="view?bNum=${view.ppage }">◀</a>
 	 	<a class="btn btn-primary" role="button" aria-pressed="true" href="view?bNum=${view.npage }">▶</a>

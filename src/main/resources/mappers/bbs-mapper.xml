@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.kh.myapp.bbs.dao.BbsDAO">
     <insert id="write">
-    	insert into bbs (bnum, btitle, bname, bcontent) values(bbsnum_seq.nextval, #{bTitle},#{bName},#{bContent})
+    	insert into bbs (bnum, btitle, bname, bcontent) values(bbsnum_seq.nextval, #{btitle},#{bname},#{bcontent})
     </insert>
     
      <select id="view" resultType="BbsDTO">

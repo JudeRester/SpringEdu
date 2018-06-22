@@ -21,7 +21,7 @@ public class BbsDAOimplXML implements BbsDAO {
 
 	@Override
 	public void write(BbsDTO bbsdto) {
-		sqlSession.insert("insert", bbsdto);
+		sqlSession.insert("write", bbsdto);
 	}
 
 	@Override
