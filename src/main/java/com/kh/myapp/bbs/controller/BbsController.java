@@ -63,11 +63,11 @@ public class BbsController {
 	@RequestMapping(value="/mopage",method=GET)
 	public String mopage(@RequestParam("bnum") int bnum, BbsDTO bbsdto,
 			Model model) throws Exception{
-		
+		model.addAttribute("preinfo",bs.preinfo(bnum));
 		return "/bbs/write";
 	}
 	//게시글 수정
-	@RequestMapping(value="/modify", method=GET)
+	@RequestMapping(value="/modify", method=POST)
 	public String modify(@RequestParam("bnum") int bnum, BbsDTO bbsdto,
 			Model model) throws Exception{
 		logger.info("게시글 수정" + bnum);
@@ -96,7 +96,6 @@ public class BbsController {
 		//검색조건 유무에 따른 분기
 		String option = request.getParameter("option");
 		String keyword = request.getParameter("keyword");
-		
 		List<BbsDTO> list = null;
 		PageCriteria pc = null;
 		RecordCriteria rc = null;
@@ -109,7 +108,7 @@ public class BbsController {
 			}else {
 				rc= new FindCriteria(currPage, option, keyword);
 				list = bs.list(rc);
-				int totalRec=bs.totalrec(option, keyword);
+				int totalRec=bs.searchRec((FindCriteria)rc);
 				pc = new PageCriteria(rc,totalRec);
 				
 				request.setAttribute("findCriteria", (FindCriteria)rc);

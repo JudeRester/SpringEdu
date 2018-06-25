@@ -90,10 +90,10 @@ public class PageCriteria {
 
 		if (recordCriteria instanceof FindCriteria) {
 
-			if (((FindCriteria) recordCriteria).getOption() != null
-					|| !((FindCriteria) recordCriteria).getOption().trim().equals("")) {
+			if (((FindCriteria)recordCriteria).getOption() != null
+					|| !((FindCriteria)recordCriteria).getOption().trim().equals("")) {
 
-				str.append("&option=" + ((FindCriteria) recordCriteria).getOption());
+				str.append("&option=" + ((FindCriteria)recordCriteria).getOption());
 			}
 			if (((FindCriteria) recordCriteria).getKeyword() != null
 					|| !((FindCriteria) recordCriteria).getKeyword().trim().equals("")) {

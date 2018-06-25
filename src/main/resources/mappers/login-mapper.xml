@@ -7,4 +7,6 @@
     <select id="getMember" resultType="memberVO" parameterType="loginVO">
     	select * from member where id =#{id} and passwd = #{passwd}
     </select>
+    
+    
     </mapper>

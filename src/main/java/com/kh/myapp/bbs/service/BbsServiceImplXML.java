@@ -77,4 +77,9 @@ public class BbsServiceImplXML implements BbsService {
 		return bbsDAO.totalrec(col, keyword);
 	}
 
+	@Override
+	public int searchRec(FindCriteria findCriteria) throws Exception {
+		return bbsDAO.searchRec(findCriteria);
+	}
+
 }

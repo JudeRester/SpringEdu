@@ -74,15 +74,15 @@ public class LoginController {
 			return "login/login";
 		}
 	
-	// 회원정보 가져오기
-	MemberVO memberVO = loginService.getMember(login);
-	if (memberVO != null) {
-		// 회원정보 세션에 담기
-		model.addAttribute("login", memberVO);
-		return "redirect:/";
-
-	} else {
-		return "login/login";
+			// 회원정보 가져오기
+			MemberVO memberVO = loginService.getMember(login);
+			if (memberVO != null) {
+				// 회원정보 세션에 담기
+				model.addAttribute("login", memberVO);
+				return "redirect:/";
+		
+			} else {
+				return "login/login";
 	}
 }
 	//로그아웃

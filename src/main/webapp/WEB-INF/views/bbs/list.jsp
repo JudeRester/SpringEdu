@@ -8,16 +8,23 @@
 html, body{
 height:100%;}
 </style>
+<meta name="_csrf_header" content="${_csrf.headerName}"/>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="/webjars/bootstrap/4.1.0/css/bootstrap.css">
 <script src="/webjars/jquery/3.3.1/dist/jquery.js"></script>
 <script src="/webjars/bootstrap/4.1.0/js/bootstrap.js"></script>
 <title>Insert title here</title>
-<!-- <script>
-$(function).click(function(){
-	self.location
-})
-</script> -->
+<script>
+$(function(){
+	$('#searchBtn').click(function(){
+		self.location = 'list?currpage=1'+'&option='
+						+$("select[name=option]").val()
+						+'&keyword='
+						+$("input[name=keyword]").val();
+		console.log(self.location.toString());
+	});
+});
+</script>
 </head>
 <jsp:include page="/WEB-INF/views/nav.jsp" flush="true" />
 <body>
@@ -89,16 +96,22 @@ $(function).click(function(){
     </tr>
      <tr>
      	<td>
-     	<form action="list" method="post">
-     		<select name="col" class="form-control-sm">
-     			<option value = "제목내용">제목 + 내용</option>
-     			<option value = "제목">제목</option>
-     			<option value = "내용">내용</option>
-     			<option value = "작성자" >작성자</option>
+     		<select name="option" class="form-control-sm">
+     			<option value="TC" 
+		    	<c:out value="${findCriteria.option == 'TC' ? 'selected' : '' }"/>>
+		    	제목 + 내용</option>
+		    <option value="T"
+		  		<c:out value="${findCriteria.option == 'T' ? 'selected' : '' }"/>>		    
+		    	제목</option>
+		    <option value="C"
+			  	<c:out value="${findCriteria.option == 'C' ? 'selected' : '' }"/>>	
+		    	내용</option>
+		    <option value="W"
+		  		<c:out value="${findCriteria.option == 'W' ? 'selected' : '' }"/>>
+		    	작성자</option>
      		</select>
-     		<input type="text" name="keyword" class="form-control-sm" value="${keyword }" />
-     		<input type="submit" class="btn btn-outline-dark btn-sm" id="searchBtn" value="검색"/>
-     	</form>
+     		<input type="text" name="keyword" class="form-control-sm" value="${findCriteria.keyword }" />
+     		<input type="button" class="btn btn-outline-dark btn-sm" id="searchBtn" value="검색"/>
      	</td>
      </tr>
     </table>

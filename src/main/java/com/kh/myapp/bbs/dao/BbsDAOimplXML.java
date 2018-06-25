@@ -69,12 +69,17 @@ public class BbsDAOimplXML implements BbsDAO {
 
 	@Override
 	public int totalrec(String col, String keyword) {
-		return 0;
+		return sqlSession.selectOne("totalRec");
 	}
 
 	@Override
 	public void modify(BbsDTO bbsdto) throws Exception {
-		sqlSession.update("modify",bbsdto);
+		sqlSession.update("update",bbsdto);
+	}
+
+	@Override
+	public int searchRec(FindCriteria findCriteria) throws Exception {
+		return sqlSession.selectOne("searchRec", findCriteria);
 	}
 
 }

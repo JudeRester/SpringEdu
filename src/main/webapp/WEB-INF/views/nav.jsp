@@ -1,3 +1,4 @@
+
  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/webjars/bootstrap/4.1.0/css/bootstrap.css">
@@ -7,6 +8,7 @@
  <link href="/resources/vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css">
   <!-- Custom styles for this template -->
  <link href="/resources/css/freelancer.min.css" rel="stylesheet">
+ 
 <nav class="navbar navbar-expand-lg bg-primary fixed-top text-uppercase" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="/bbs/list">Start Bootstrap</a>

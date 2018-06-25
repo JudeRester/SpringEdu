@@ -37,5 +37,6 @@ public interface BbsDAO {
 	//List<BbsDTO> list(int Startrec, int Lastrec, String keyword, String col) throws Exception;
 
 	int totalrec(String col, String keyword) throws Exception;
-
+	
+	int searchRec(FindCriteria findCriteria) throws Exception;
 }
