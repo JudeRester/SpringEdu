@@ -101,5 +101,7 @@
       </choose>
          ) t2 
    </select>
-
+	<update id="updatehit">
+		update bbs SET bhit=bhit+1 where bnum = #{bnum}		
+	</update>
     </mapper>

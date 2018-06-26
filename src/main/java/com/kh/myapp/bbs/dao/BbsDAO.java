@@ -39,4 +39,6 @@ public interface BbsDAO {
 	int totalrec(String col, String keyword) throws Exception;
 	
 	int searchRec(FindCriteria findCriteria) throws Exception;
+	
+	void updateHit(int bnum) throws Exception;
 }

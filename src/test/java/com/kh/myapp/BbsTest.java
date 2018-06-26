@@ -54,6 +54,7 @@ class BbsTest {
 	}*/
 	
 	@Test
+	@Disabled
 	void list_test() throws Exception {
 		List<BbsDTO> list;
 
@@ -71,6 +72,12 @@ class BbsTest {
 
 		logger.info("목록수:" + list.size());
 
+	}
+	@Test
+	void update() throws Exception{
+		bbsdao.updateHit(22);
+		logger.info("조회수 증가");
+		
 	}
 	
 }

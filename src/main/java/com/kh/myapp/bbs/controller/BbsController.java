@@ -30,17 +30,16 @@ public class BbsController {
 	@Autowired
 	@Qualifier("bbsServiceImplXML")
 	private BbsService bs;
-
+	//게시글 쓰기 페이지
 	@RequestMapping(value = "/write", method = GET)
 	public void writeGet(BbsDTO bbsdto, Model model) throws Exception {
 		logger.info("wite GET..");
 	}
-
+	//게시글 등록
 	@RequestMapping(value = "/write", method = POST)
 	public String writePost(BbsDTO bbsdto, Model model) throws Exception {
 		logger.info("wite Post..");
 		logger.info(bbsdto.toString());
-
 		bs.write(bbsdto);
 		return "redirect:/bbs/list";
 	}

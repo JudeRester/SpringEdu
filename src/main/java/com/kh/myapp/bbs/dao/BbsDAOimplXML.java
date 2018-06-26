@@ -82,4 +82,9 @@ public class BbsDAOimplXML implements BbsDAO {
 		return sqlSession.selectOne("searchRec", findCriteria);
 	}
 
+	@Override
+	public void updateHit(int bnum) throws Exception {
+		sqlSession.update("updatehit", bnum);
+	}
+
 }

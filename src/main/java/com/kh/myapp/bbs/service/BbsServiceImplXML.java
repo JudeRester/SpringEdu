@@ -54,7 +54,9 @@ public class BbsServiceImplXML implements BbsService {
 
 	@Override
 	public BbsDTO view(int bNum) throws Exception {
+		bbsDAO.updateHit(bNum);
 		return bbsDAO.view(bNum);
+		
 	}
 
 	@Override
