@@ -41,7 +41,7 @@ public class BbsController {
 		return "redirect:/bbs/list";
 	}
 	//답글 페이지
-	@RequestMapping(value="/reply", method=GET)
+	@RequestMapping(value="/replyView", method=GET)
 	public void replyGet(@RequestParam("bnum") int bnum, BbsDTO bbsdto, Model model) throws Exception{
 		model.addAttribute("preinfo", bs.preinfo(bnum));
 		logger.info("get");
