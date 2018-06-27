@@ -45,7 +45,8 @@ $(function(){
       <tr>
       	<th scope="row">${dto.bnum }</th>
         <td>
-        <c:forEach begin="1" end="${dto.bindent }">┗</c:forEach>
+        <c:forEach begin="1" end="${dto.bindent }">&nbsp;&nbsp;</c:forEach>
+		<c:if test="${dto.bindent > 0}"><img alt="" src="/resources/img/icon_reply.gif"></c:if>	
         <a href="/bbs/view?bnum=${dto.bnum }&${pc.makeSearchURL(pc.currpage) }">${dto.btitle }</a>
         </td>
         <td>${dto.bname }</td>

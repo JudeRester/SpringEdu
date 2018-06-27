@@ -16,7 +16,10 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.kh.myapp.bbs.criteria.RecordCriteria;
 import com.kh.myapp.bbs.dao.BbsDAO;
+import com.kh.myapp.bbs.dao.RbbsDAO;
 import com.kh.myapp.bbs.dto.BbsDTO;
+import com.kh.myapp.bbs.dto.RbbsDTO;
+import com.kh.myapp.bbs.service.BbsService;
 
 
 
@@ -30,6 +33,14 @@ class BbsTest {
 	@Autowired
 	@Qualifier("bbsDAOimplXML")
 	BbsDAO bbsdao;
+	
+	@Autowired
+	@Qualifier("bbsServiceImplXML")
+	BbsService bbss;
+	
+	@Autowired
+	@Qualifier("rbbsDAOimplXML")
+	RbbsDAO rdao;
 
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
@@ -74,10 +85,27 @@ class BbsTest {
 
 	}
 	@Test
+	@Disabled
 	void update() throws Exception{
 		bbsdao.updateHit(22);
 		logger.info("조회수 증가");
 		
 	}
-	
+	@Test
+	@Disabled
+	void view() throws Exception{
+		bbss.view(713);
+		logger.info("view");
+	}
+	//rnum,bnum,rid,rname,rcontent
+	@Test
+	void repl() throws Exception{
+		RbbsDTO rdto = new RbbsDTO();
+		rdto.setBnum(732);
+		rdto.setRid("admin@kh.com");
+		rdto.setRname("관리자");
+		rdto.setRcontent("아아 췤췤");
+		
+		rdao.write(rdto);
+	}
 }

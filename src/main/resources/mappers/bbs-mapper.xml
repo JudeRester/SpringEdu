@@ -4,13 +4,20 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
     <mapper namespace="com.kh.myapp.bbs.dao.BbsDAO">
     <insert id="write">
-    	insert into bbs (bnum, btitle, bname, bcontent) values(bbsnum_seq.nextval, #{btitle},#{bname},#{bcontent})
+    	insert into bbs (bnum, btitle, bname, bcontent, bid, bname)
+    	values(bbsnum_seq.nextval, #{btitle},#{bname},#{bcontent}, #{bid}, #{bname})
     </insert>
     
      <select id="view" resultType="BbsDTO">
-    	select BNUM, BTITLE, BNAME, BCDATE, BUDATE, BHIT, BCONTENT FROM bbs where bnum = #{bNum}
+    	select BNUM, BTITLE, BNAME, BCDATE, BUDATE, BHIT, BCONTENT, bid FROM bbs where bnum = #{bNum}
     </select>
     
+    <select id="ppage" resultType="int">
+    	select bNum from bbs where bNum=(select max(bNum) from bbs where bNum <![CDATA[ < ]]> #{bnum} and bgroup is null)
+    </select>
+    <select id="npage" resultType="int">
+    	select bNum from bbs where bNum=(select min(bNum) from bbs where bNum > #{bnum} and bgroup is null)
+    </select>
     <select id="list" resultType="BbsDTO"> 
     select bnum, btitle, bname, bhit, bcontent, bcdate, bgroup, bstep, bindent
      from bbs order by bgroup desc, bstep asc 
@@ -25,8 +32,8 @@
     
     
    <insert id="reply">
-      insert into bbs (bnum, btitle, bname, bcontent, bgroup, bindent)
-      values(bbsnum_seq.nextval,#{btitle},#{bname},#{bcontent},#{bgroup},#{bindent})
+      insert into bbs (bnum, btitle, bname, bcontent, bgroup, bindent,bid)
+      values(bbsnum_seq.nextval,#{btitle},#{bname},#{bcontent},#{bgroup},#{bindent},#{bid})
    </insert>
    
    <select id="preInfo" resultType="BbsDTO">

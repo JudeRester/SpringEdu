@@ -58,7 +58,7 @@ public class BbsDAOimplXML implements BbsDAO {
 
 	@Override
 	public void reply(BbsDTO bbsdto) {
-		
+		sqlSession.insert("reply", bbsdto);
 	}
 
 	@Override
@@ -85,6 +85,16 @@ public class BbsDAOimplXML implements BbsDAO {
 	@Override
 	public void updateHit(int bnum) throws Exception {
 		sqlSession.update("updatehit", bnum);
+	}
+
+	@Override
+	public int getppage(int bnum) throws Exception {
+		return sqlSession.selectOne("ppage", bnum);
+	}
+
+	@Override
+	public int getnpage(int bnum) throws Exception {
+		return sqlSession.selectOne("npage", bnum);
 	}
 
 }

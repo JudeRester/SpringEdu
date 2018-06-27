@@ -2,8 +2,9 @@ package com.kh.myapp.bbs.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import com.kh.myapp.bbs.criteria.FindCriteria;
-import com.kh.myapp.bbs.criteria.PageCriteria;
 import com.kh.myapp.bbs.criteria.RecordCriteria;
 import com.kh.myapp.bbs.dto.BbsDTO;
 
@@ -12,6 +13,8 @@ public interface BbsService {
 	void write(BbsDTO bbsdto) throws Exception;
 
 	//List<BbsDTO> list(int Startrec, int Lastrec) throws Exception;
+	
+	void list(HttpServletRequest request) throws Exception;
 	
 	List<BbsDTO> list()  throws Exception;
 	

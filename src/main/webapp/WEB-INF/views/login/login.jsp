@@ -40,7 +40,7 @@ height:100%;
 </script>
 <title>J's BBS</title>
 </head>
-<sec:authentication var="user" property="principal" scope="session"/>
+<%-- <sec:authentication var="user" property="principal" scope="session"/> --%>
 <body>
 <c:url value="login" var="loginUrl"/>
 <jsp:include page="/WEB-INF/views/nav.jsp" flush="true" />

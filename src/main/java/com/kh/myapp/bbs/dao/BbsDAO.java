@@ -41,4 +41,8 @@ public interface BbsDAO {
 	int searchRec(FindCriteria findCriteria) throws Exception;
 	
 	void updateHit(int bnum) throws Exception;
+	
+	int getppage(int bnum) throws Exception;
+	
+	int getnpage(int bnum) throws Exception;
 }
