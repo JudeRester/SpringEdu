@@ -9,6 +9,15 @@
 </insert>
 <!-- 해당 글 댓글 전부 -->
 <!-- 요청 페이지 댓글 목록 -->
+<select id="list" parameterType="MAP" resultType="RbbsDTO">
+	select * 
+		from (select rownum as row, rnum, bnum, rname, rcontent, rgroup, rindent 
+		from (select bnum, rname, rcontent, rgroup, rindent 
+		from rbbs start with rGroup is null connect by prior rnum = rgroup 
+		order siblings by rgroup desc, rcdate desc, rnum desc)
+		 where rownum <![CDATA[ < ]]>= #{endRecord})
+		 where row >= #{startRecord}
+</select>
 <!-- 댓글 수정 -->
 <update id="update">
 	update rbbs set rcontent=#{rcontent} where rnum=#{rnum}
@@ -22,8 +31,22 @@
 	insert into bbs (rnum,bnum,rid,rname,rcontent,rgroup,rindent)
 	values(rbbsnum_seq.nextval,#{bnum},#{rid},#{rname},#{rcontent},#{rgroup},#{rindent})
 </insert>
+<!-- 좋싫 -->
 <update id="vote">
-	
-	update rbbs set rgood=rgood+1 where rnum=#{rnum}
+	<choose>
+		<when test="vote == 'good'">
+		update rbbs set rgood=rgood+1 where rnum=#{rnum}
+		</when>
+		<when test="vote == 'bad'">
+		update rbbs set rbad=rbad+1 where rnum=#{rnum}
+		</when>
+	</choose>
 </update>
+<!-- 대댓 대상 정보 -->
+<select  id="preinfo" resultType="RbbsDTO">
+	select bnum,rnum, rgroup, rindent from rbbs where rnum = #{rnum}
+</select>
+<select id="replyTotalRec" resultType="int">
+	select count(*) totalRec from rbbs where bnum=#{bnum}
+</select>
 </mapper>
