@@ -57,12 +57,13 @@ ${view.bcontent }
 		</c:if>
 		<a href="replyView?bnum=${view.bnum }" class="btn btn-primary" role="button" aria-pressed="true">답글</a>
 	 	<a href="list?currPage=${currpage }" class="btn btn-primary" role="button" aria-pressed="true" aria-describedby="inputGroup-sizing-sm"> 목록으로</a>
-	 	<a class="btn btn-primary" role="button" aria-pressed="true" href="view?bnum=${view.ppage }">◀</a>
-	 	<a class="btn btn-primary" role="button" aria-pressed="true" href="view?bnum=${view.npage }">▶</a>
+	 	<a class="btn btn-primary" role="button" aria-pressed="true" href="view?bnum=${view.ppage }&currPage=${currpage}">◀</a>
+	 	<a class="btn btn-primary" role="button" aria-pressed="true" href="view?bnum=${view.npage }&currPage=${currpage}">▶</a>
 	 	</td>
 	</tr>
 	</table>
 	</div>
+	<jsp:include page="reply.jsp" />
 	</div>
 <jsp:include page="/WEB-INF/views/footer.jsp" />
 </body>

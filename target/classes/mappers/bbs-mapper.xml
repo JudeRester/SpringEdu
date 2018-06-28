@@ -42,11 +42,6 @@
    </select>
    
    <select id="listPageCri" resultType="BbsDTO">
-      <!-- select t2.*
-      from (select row_number() over (order by bgroup desc, bstep asc) as num, t1.*
-      from bbs t1) t2
-      where num between #{startRecord} and #{endRecord}
-       -->
       select * 
 		from (select rownum as rnum, bnum, btitle,bname, bhit, bcontent, bgroup, bstep, bindent 
 		from (select bnum, btitle, bname, bhit, bcontent, bgroup, bstep, bindent 
