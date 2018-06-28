@@ -55,7 +55,6 @@ public class RbbsController {
 		ResponseEntity<Map<String,Object>> responseEntity = null;
 		Map<String,Object> map = new HashMap<>();
 		RecordCriteria rc = new RecordCriteria(recurrPage,10);
-		System.out.println("recurrPage:"+recurrPage);
 		try {
 			//페이지 처리
 			PageCriteria pc = new PageCriteria(rc, rbbsService.replyTotalRec(bnum),10);
@@ -83,7 +82,7 @@ public class RbbsController {
 		return responseEntity;
 	}
 	//댓글 삭제
-	@RequestMapping(value="/delete",method=DELETE)
+	@RequestMapping(value="/delete/{rnum}",method=DELETE)
 	public ResponseEntity<String> delete(@PathVariable int rnum){
 		ResponseEntity<String> responseEntity = null;
 		try {

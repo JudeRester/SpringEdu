@@ -322,6 +322,7 @@ $(function(){
          dataType: "JSON",
          success: function(data){
             $.each(data.item, function(idx,rec){
+            	var date = new Date(this.rcdate);
                str += "<span>";
                 str   += "<li data-rnum='"+this.rnum+"' class='reList list-group-item'>";
                 for(var i=0; i<rec.rindent; i++) {
@@ -330,7 +331,7 @@ $(function(){
                if(rec.rindent>0){
                   str +=   "<img alt='' src='/resources/img/icon_reply.gif'>"
                }   
-               str   +=   "<span class='text-primary'>" + rec.rcdate + "</span>&nbsp;"
+               str   +=   "<span class='text-primary'>" + date.toLocaleDateString('ko-KR') + "</span>&nbsp;"
                       +      "<span>(" + rec.rname       + ")</span>"                         
                       +      "<span>&nbsp;&nbsp;</span>"
                       +    "<span id='rcontent'>" + rec.rcontent    + "</span>"
