@@ -5,8 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 	<!-- spring security 제외 -->
-<!-- 	<http pattern="/bbs/**" security="none" />
- -->	<http pattern="/resources/**" security="none" />
+<!-- 	<http pattern="/bbs/**" security="none" />-->	
+	<http pattern="/member/**" security="none" />
+	<http pattern="/resources/**" security="none" />
 	<http pattern="/images/**" security="none" />
 	<http pattern="/css/**" security="none" />
 	<http pattern="/js/**" security="none" />
@@ -16,8 +17,9 @@
 		<form-login login-page="/login/login"
 		authentication-failure-url="/login/login?fail" />
 	
-		<intercept-url pattern="/member/**" access="isAuthenticated()" /> <!-- 인증된 회원만 -->
+		<!-- <intercept-url pattern="/member/**" access="isAuthenticated()" />  --><!-- 인증된 회원만 -->
 		<intercept-url pattern="/admin/**" access="hasAuthority('ROLE_ADMIN')" />
+		<intercept-url pattern="/bbs/**" access="isAuthenticated()"></intercept-url>
 		<intercept-url pattern="/**" access="permitAll" /> <!-- 누구나 -->
 		
 		<form-login default-target-url="/" />

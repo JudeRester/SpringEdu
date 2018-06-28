@@ -29,12 +29,12 @@ public class JdbcTemplateTest {
 	@Autowired
 	MemberServiceimpl memberService = new MemberServiceimpl();
 	
-	@Test @Ignore
+	@Test
 	public void test() {
 		memberDAO.setDataSource(ds);
 		logger.info(memberDAO.toString());
 		MemberVO memVO= new MemberVO();
-		memVO.setId("admin16@kh.com");
+		memVO.setId("admin1@kh.com");
 		memVO.setPasswd("1234");
 		memVO.setName("관리자");
 		memVO.setBirth("20000101");

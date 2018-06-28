@@ -40,7 +40,10 @@ public class MemberController {
 
 	@RequestMapping(value="/memberJoinOK", method = RequestMethod.POST)
 	public String memberJoinOK(@Valid MemberVO memberVO, BindingResult result){
+		System.out.println(memberVO.toString());
 		if(result.hasErrors()) {
+			
+			System.out.println(result.toString());
 			logger.info("회원가입시 오류 발생");
 			return "member/memberjoin";
 		}else {

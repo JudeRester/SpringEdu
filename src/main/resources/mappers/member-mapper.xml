@@ -12,7 +12,7 @@
     	select * from member
     </select>
 		<insert id="memberInsert" parameterType="MemberVO">
-			insert into member values(#{id},#{passwd},#{name},#{birth},#{phone},#{gender})
+			insert into member(id,passwd,name,birth, phone, gender) values(#{id},#{passwd},#{name},#{birth},#{phone},#{gender})
 		</insert>
 		<delete id="memberDelete" parameterType="String">
 			delete from member where id = #{id}

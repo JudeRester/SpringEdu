@@ -21,80 +21,80 @@ public class BbsDAOimplXML implements BbsDAO {
 
 	@Override
 	public void write(BbsDTO bbsdto) {
-		sqlSession.insert("write", bbsdto);
+		sqlSession.insert("bbsdao.write", bbsdto);
 	}
 
 	@Override
 	public List<BbsDTO> list() throws Exception {
-		return sqlSession.selectList("list");
+		return sqlSession.selectList("bbsdao.list");
 	}
 
 	@Override
 	public List<BbsDTO> list(RecordCriteria recordCriteria) throws Exception {
 		logger.info(recordCriteria);
-		return sqlSession.selectList("listPageCri", recordCriteria);
+		return sqlSession.selectList("bbsdao.listPageCri", recordCriteria);
 	}
 
 	@Override
 	public List<BbsDTO> list(FindCriteria findCriteria) throws Exception {
-		return sqlSession.selectList("listFindCri", findCriteria);
+		return sqlSession.selectList("bbsdao.listFindCri", findCriteria);
 	}
 
 	@Override
 	public BbsDTO view(int bNum) throws Exception {
-		return sqlSession.selectOne("view", bNum);
+		return sqlSession.selectOne("bbsdao.view", bNum);
 	}
 
 
 	@Override
 	public void delete(int bNum) {
-		sqlSession.delete("delete",bNum);
+		sqlSession.delete("bbsdao.delete",bNum);
 	}
 
 	@Override
 	public BbsDTO preinfo(int bNum) {
-		return sqlSession.selectOne("preInfo", bNum);
+		return sqlSession.selectOne("bbsdao.preInfo", bNum);
 	}
 
 	@Override
 	public void reply(BbsDTO bbsdto) {
-		sqlSession.insert("reply", bbsdto);
+		sqlSession.insert("bbsdao.reply", bbsdto);
 	}
 
 	@Override
 	public int totalrec() {
-		return sqlSession.selectOne("totalRec");
+		return sqlSession.selectOne("bbsdao.totalRec");
 	}
 
 
 	@Override
 	public int totalrec(String col, String keyword) {
-		return sqlSession.selectOne("totalRec");
+		return sqlSession.selectOne("bbsdao.totalRec");
 	}
 
 	@Override
 	public void modify(BbsDTO bbsdto) throws Exception {
-		sqlSession.update("update",bbsdto);
+		sqlSession.update("bbsdao.update",bbsdto);
 	}
 
 	@Override
 	public int searchRec(FindCriteria findCriteria) throws Exception {
-		return sqlSession.selectOne("searchRec", findCriteria);
+		return sqlSession.selectOne("bbsdao.searchRec", findCriteria);
 	}
 
 	@Override
 	public void updateHit(int bnum) throws Exception {
-		sqlSession.update("updatehit", bnum);
+		sqlSession.update("bbsdao.updatehit", bnum);
 	}
 
 	@Override
 	public int getppage(int bnum) throws Exception {
-		return sqlSession.selectOne("ppage", bnum);
+		return sqlSession.selectOne("bbsdao.ppage", bnum);
 	}
 
 	@Override
 	public int getnpage(int bnum) throws Exception {
-		return sqlSession.selectOne("npage", bnum);
+		return sqlSession.selectOne("bbsdao.npage", bnum);
 	}
 
 }
