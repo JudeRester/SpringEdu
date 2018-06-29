@@ -34,6 +34,7 @@ height:100%}
 		</tr>
 		<tr>
 			<th scope="col">내용</th>
+
 			<td scope="col"><textarea class="form-control" name="bcontent" id="" >${preinfo.bcontent }</textarea></td>
 		</tr>
 		<tr>
@@ -44,6 +45,7 @@ height:100%}
 		
 		</table>
 		<input type="hidden" name="bnum" value="${preinfo.bnum }" />
+		<input type="hidden" name="currPage" value="${currPage }" />
 		<sec:csrfInput />
 </form>
 </c:when>

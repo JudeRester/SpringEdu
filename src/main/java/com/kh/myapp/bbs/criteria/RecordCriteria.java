@@ -17,11 +17,11 @@ public class RecordCriteria {
 		this.showamount = numPerPage;
 	}
 
-	public int getCurrPage() {
+	public int getcurrPage() {
 		return currPage;
 	}
 
-	public void setCurrPage(int reqPage) {
+	public void setcurrPage(int reqPage) {
 		if (reqPage <= 0) {
 			this.currPage = 1;
 			return;

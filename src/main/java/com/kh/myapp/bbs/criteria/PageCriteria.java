@@ -6,7 +6,7 @@ public class PageCriteria {
 	private int endpage; // 단위마지막페이지
 	private int totalrec; // 총 게시글 수
 	private int lastpage; // 마지막 페이지
-	private int currpage; // 현재 페이지
+	private int currPage; // 현재 페이지
 	private int pagenum; // 페이지번호
 
 	private boolean pre; // 이전페이지 여부
@@ -18,7 +18,7 @@ public class PageCriteria {
 	private PageCriteria(RecordCriteria recordCriteria) {
 		this.recordCriteria = recordCriteria;
 		
-		currpage = recordCriteria.getCurrPage();
+		currPage = recordCriteria.getcurrPage();
 	}
 	
 	public PageCriteria(RecordCriteria recordCriteria, int totalRec) {
@@ -34,11 +34,11 @@ public class PageCriteria {
 		init();
 	}
 	/*
-	 * public PageCriteria(int currpage) { this.currpage = currpage; this.showamount
+	 * public PageCriteria(int currPage) { this.currPage = currPage; this.showamount
 	 * = 10; }
 	 * 
-	 * public PageCriteria(int currpage, int totalrec) { this.totalrec = totalrec;
-	 * this.currpage = currpage; init(); }
+	 * public PageCriteria(int currPage, int totalrec) { this.totalrec = totalrec;
+	 * this.currPage = currPage; init(); }
 	 */
 
 	private void init() {
@@ -51,13 +51,13 @@ public class PageCriteria {
 		}
 
 		// 단위당 첫 페이지
-		startpage = ((currpage - 1) / showamount) * showamount + 1;
+		startpage = ((currPage - 1) / showamount) * showamount + 1;
 
 		// 단위당 마지막 페이지
 		endpage = startpage + showamount - 1;
 
-		if (currpage > lastpage) {
-			currpage = lastpage;
+		if (currPage > lastpage) {
+			currPage = lastpage;
 		}
 		if (endpage > lastpage) {
 			endpage = lastpage;
@@ -71,8 +71,8 @@ public class PageCriteria {
 
 		StringBuffer str = new StringBuffer();
 
-		if (currpage != 0) {
-			str.append("currPage=" + currpage);
+		if (currPage != 0) {
+			str.append("currPage=" + currPage);
 		}
 
 		return str.toString();
@@ -106,7 +106,7 @@ public class PageCriteria {
 
 	// 페이지 첫 글
 	public int getStartrec() {
-		return (currpage - 1) * showamount + 1;
+		return (currPage - 1) * showamount + 1;
 	}
 
 	// 페이지 마지막 글
@@ -178,11 +178,11 @@ public class PageCriteria {
 		this.lastpage = lsatpage;
 	}
 
-	public int getCurrpage() {
-		return currpage;
+	public int getcurrPage() {
+		return currPage;
 	}
 
-	public void setCurrpage(int currpage) {
-		this.currpage = currpage;
+	public void setcurrPage(int currPage) {
+		this.currPage = currPage;
 	}
 }

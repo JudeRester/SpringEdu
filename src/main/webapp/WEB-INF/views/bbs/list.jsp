@@ -17,7 +17,7 @@ height:100%;}
 <script>
 $(function(){
 	$('#searchBtn').click(function(){
-		self.location = 'list?currpage=1'+'&option='
+		self.location = 'list?currPage=1'+'&option='
 						+$("select[name=option]").val()
 						+'&keyword='
 						+$("input[name=keyword]").val();
@@ -47,7 +47,7 @@ $(function(){
         <td>
         <c:forEach begin="1" end="${dto.bindent }">&nbsp;&nbsp;</c:forEach>
 		<c:if test="${dto.bindent > 0}"><img alt="" src="/resources/img/icon_reply.gif"></c:if>	
-        <a href="/bbs/view?bnum=${dto.bnum }&${pc.makeSearchURL(pc.currpage) }">${dto.btitle }</a>
+        <a href="/bbs/view?bnum=${dto.bnum }&${pc.makeSearchURL(pc.currPage) }">${dto.btitle }</a>
         </td>
         <td>${dto.bname }</td>
         <td>${dto.bhit }</td>
@@ -69,12 +69,12 @@ $(function(){
 			    </li>
 		    </c:if>
 		    <c:forEach begin="${pc.startpage }" end="${pc.endpage }" var="pageNum">
-		    	<c:if test="${pc.currpage == pageNum }">
+		    	<c:if test="${pc.currPage == pageNum }">
 			    <li class="page-item active">		
 			      <a class="page-link" href="list?${pc.makeSearchURL(pageNum) }">${pageNum}</a>
 			    </li>
 	    		 </c:if>   
-	    		 <c:if test="${pc.currpage != pageNum }">
+	    		 <c:if test="${pc.currPage != pageNum }">
 			    <li class="page-item">
 			    	<a class="page-link" href="list?${pc.makeSearchURL(pageNum)}">${pageNum}</a>
 			    </li>
@@ -92,7 +92,7 @@ $(function(){
 		</nav>          
       </td>
 		<td colspan="5">
-		<a href="write?${pc.makeSearchURL(pc.currpage) }" class="btn btn-primary" role="button" aria-pressed="true">글쓰기</a>
+		<a href="write?${pc.makeSearchURL(pc.currPage) }" class="btn btn-primary" role="button" aria-pressed="true">글쓰기</a>
 		</td> 
     </tr>
      <tr>

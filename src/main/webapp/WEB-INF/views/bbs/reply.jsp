@@ -357,7 +357,7 @@ $(function(){
             $("#reply").html(str);      
             //페이지 리스트 호출
             showPageList(data.pc);
-            recurrPage = data.pc.currpage;
+            recurrPage = data.pc.currPage;
          },
          error: function(error){
             console.log("실패"+error);
@@ -368,7 +368,7 @@ $(function(){
    // 페이지 리스트
    function showPageList(pc){
       console.log(pc);
-      recurrPage = pc.currpage;
+      recurrPage = pc.currPage;
       var str = "";
       
       // 이전표시

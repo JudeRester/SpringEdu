@@ -64,27 +64,29 @@ public class BbsController {
 	}
 	//게시글 수정 화면
 	@RequestMapping(value="/mopage",method=GET)
-	public String mopage(@RequestParam("bnum") int bnum, BbsDTO bbsdto,
+	public String mopage(@RequestParam("bnum") int bnum,@RequestParam("currPage") int currPage, BbsDTO bbsdto,
 			Model model) throws Exception{
 		model.addAttribute("preinfo",bs.preinfo(bnum));
+		model.addAttribute("currPage", currPage);
 		return "/bbs/write";
 	}
 	//게시글 수정
 	@RequestMapping(value="/modify", method=POST)
-	public String modify(@RequestParam("bnum") int bnum, BbsDTO bbsdto,
+	public String modify(@RequestParam("bnum") int bnum,@RequestParam("currPage") int currPage, BbsDTO bbsdto,
 			Model model) throws Exception{
 		logger.info("게시글 수정" + bnum);
 		bs.modify(bbsdto);
+		model.addAttribute("currPage",currPage);
 		return "redirect:/bbs/view?bnum="+bnum;
 	}
 	
 	//게시글보기
 	@RequestMapping(value="/view", method=GET)
 	public void view(@RequestParam("bnum")int bnum,
-			@RequestParam("currPage") int currpage,Model model) throws Exception{
+			@RequestParam("currPage") int currPage,Model model) throws Exception{
 		logger.info("게시글 보기");
 		model.addAttribute("view", bs.view(bnum));
-		model.addAttribute("currpage", currpage);
+		model.addAttribute("currPage", currPage);
 	}
 	
 	//게시글 목록
