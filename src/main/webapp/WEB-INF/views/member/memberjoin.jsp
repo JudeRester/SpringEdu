@@ -30,18 +30,7 @@ $(function(){
 		$("form").submit();
 		
 	});
-/* 	
-	$("#joinClearBtn").on("click",function(e){
-		e.preventDefault();		
-		  $("form").each(function(){
-			    this.reset();
-			  });
-	});	
-	
-	$("#joinCancelBtn").on("click",function(e){
-		e.preventDefault();		
-			location.href="/member/memberList";
-	});	 */
+
 	
 }); 
 </script>
@@ -94,15 +83,9 @@ $(function(){
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="성별" class="cols-sm-2 control-label">ID</label>
-						<div class="cols-sm-10">
-							<div class="input-group">
-								<span class="input-group-addon"></span>
-								
-								남<form:radiobutton path="gender" value="m"/>
-								여<form:radiobutton path="gender" value="w"/>
-							</div>
-						</div>
+						<label for="gender" class="cols-sm-2 control-label">성별</label><br />
+								남 <form:radiobutton path="gender" value="m"/>
+								여 <form:radiobutton path="gender" value="w"/>
 					</div>
 					<div class="form-group">
 						<label for="id" class="cols-sm-2 control-label">ID</label>

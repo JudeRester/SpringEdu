@@ -20,7 +20,7 @@
 <body>
 <nav class="navbar navbar-expand-lg bg-primary fixed-top text-uppercase" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/bbs/list">Start Bootstrap</a>
+        <a class="navbar-brand js-scroll-trigger" href="/bbs/list">J's BBS</a>
         <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" 
        			data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" 
         		aria-expanded="false" aria-label="Toggle navigation">
